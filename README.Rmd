@@ -1,32 +1,19 @@
 ---
-title: "R Markdown for Medicine: <br>From Data to Manuscript"
+title: "R Markdown from basics to advanced"
 output: github_document
 ---
 
-### [R/Medicine 2019 conference](https://r-medicine.com/)
+### Basics and Advanced slides for teaching RMarkdown
 
 ---
 
-```{r child = here::here('content/schedule/index.md')}
-```
+## Acknowledgement
+
+This repository has been cloned from the [original](https://github.com/rstudio-education/communicate-rmd-workshop) RStudio Education site and the files relating to the Netlify publishing have been removed. This was originally a full-day workshop created and delivered by Alison Hill to the Young Statisticians Conference 2019. The slides are published on [Netlify](https://ysc-rmarkdown.netlify.app/) with its own [GitHub repository](https://github.com/ysc2019-workshop) for materials. I found this resource through [Alison's blog](https://www.apreshill.com/talk/2019-ysc-workshop/).
+
+
 
 ---
-
-## Overview
-
-In this full-day workshop, you'll learn how to get more out of R Markdown (and friends). We will demystify how R Markdown works under the hood. You will learn practical tools and workflows to increase your efficiency and productivity using R Markdown (including RStudio IDE features and templates), while learning how to use some extension packages along the way. We assume that you have knit an R Markdown document before, but you don’t need to be an advanced R Markdown user to take this workshop. 
-
-## Instructor
-
-Alison Hill is a Data Scientist & Professional Educator at RStudio. She received her PhD in psychology and quantitative methods from Vanderbilt University in 2008. Prior to joining RStudio, she was an Assistant Professor at Arizona State University, and an Associate Professor at Oregon Health & Science University (OHSU). Alison is one of the keynote speakers at the 2019 Young Statisticians Conference. She regularly leads workshops and develops online learning materials on topics like reproducible research, machine learning, and data visualization. She is also a co-author of the book 'blogdown: Creating Websites with R Markdown' (https://bookdown.org/yihui/blogdown/). Alison lives in Portland, Oregon with her husband and young daughter.
-
-## Pre-work
-
-```{r child = here::here('content/materials/prework/index.Rmd')}
-```
-
----
-
 [![forthebadge](https://forthebadge.com/images/badges/cc-by.svg)](https://creativecommons.org/licenses/by/4.0/)  
 This work is licensed under a [Creative Commons Attribution 4.0
 International License](https://creativecommons.org/licenses/by/4.0/).
