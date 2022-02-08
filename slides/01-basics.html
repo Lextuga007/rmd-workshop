@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>R Markdown Basics</title>
     <meta charset="utf-8" />
     <meta name="author" content="Alison Hill" />
-    <meta name="date" content="2019-09-30" />
+    <meta name="date" content="2022-02-08" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/countdown/countdown.css" rel="stylesheet" />
     <script src="libs/countdown/countdown.js"></script>
@@ -37,36 +38,6 @@ class: title-slide, center, middle
 
 #### [https://ysc-rmarkdown.netlify.com/](https://ysc-rmarkdown.netlify.com/)
 
-
----
-class: middle, center
-
-.pull-left[
-# &lt;i class="fas fa-wifi"&gt;&lt;/i&gt;
-
-Wifi network name  
-
-Functions
-
-]
-
-.pull-left[
-# &lt;i class="fas fa-key"&gt;&lt;/i&gt;
-
-Wifi password
-
-Stata_16
-
-]
-
----
-class: middle, center
-
-# &lt;i class="fas fa-cloud"&gt;&lt;/i&gt;
-
-# Go here and log in (free):
-
-[http://bit.ly/ysc-rmarkdown](http://bit.ly/ysc-rmarkdown)
 
 ---
 class: middle, center
@@ -109,6 +80,9 @@ class: middle, center
 .footnote[All content is CC-BY. All art (unless otherwise noted) is by [Desirée De Leon](https://desiree.rbind.io/), CC-BY-NC-ND.]
 
 ---
+
+
+
 
 
 
@@ -350,7 +324,7 @@ Try to identify these parts in the source and the output:
 **If this was easy**, try to find all code that produces a *plot*.
 
 
-<div class="countdown" id="timer_5d9133c8" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6202ecb2" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -496,7 +470,7 @@ Use `?html_document` from your R console to:
 
 _psst...answers on the next slide..._
 
-<div class="countdown" id="timer_5d913259" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6202ec81" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -583,7 +557,7 @@ params:
 Now click on knit button and pick __"Knit with Parameters."__ How is this different from what you did above?
 
 
-<div class="countdown" id="timer_5d9132a5" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6202eb50" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -852,11 +826,12 @@ What is the fate of this chunk?
 ratings %&gt;% 
   filter(series == 1) %&gt;% 
   top_n(1, viewers_7day)
-#&gt; # A tibble: 1 x 8
+#&gt; # A tibble: 1 x 9
 #&gt;   series episode uk_airdate viewers_7day viewers_28day network_rank
-#&gt;    &lt;int&gt;   &lt;int&gt; &lt;date&gt;            &lt;dbl&gt;         &lt;dbl&gt;        &lt;int&gt;
-#&gt; 1      1       5 2010-09-14         3.03             1           NA
-#&gt; # … with 2 more variables: channels_rank &lt;int&gt;, bbc_iplayer_requests &lt;dbl&gt;
+#&gt;   &lt;fct&gt;  &lt;fct&gt;   &lt;date&gt;            &lt;dbl&gt;         &lt;dbl&gt;        &lt;int&gt;
+#&gt; 1 1      5       2010-09-14         3.03             1           NA
+#&gt; # ... with 3 more variables: channels_rank &lt;int&gt;, bbc_iplayer_requests &lt;dbl&gt;,
+#&gt; #   episode_count &lt;dbl&gt;
 ```
 
 ]
@@ -920,11 +895,12 @@ top_viewers &lt;- ratings %&gt;%
   filter(series == 1) %&gt;% 
   top_n(1, viewers_7day)
 top_viewers
-#&gt; # A tibble: 1 x 8
+#&gt; # A tibble: 1 x 9
 #&gt;   series episode uk_airdate viewers_7day viewers_28day network_rank
-#&gt;    &lt;int&gt;   &lt;int&gt; &lt;date&gt;            &lt;dbl&gt;         &lt;dbl&gt;        &lt;int&gt;
-#&gt; 1      1       5 2010-09-14         3.03             1           NA
-#&gt; # … with 2 more variables: channels_rank &lt;int&gt;, bbc_iplayer_requests &lt;dbl&gt;
+#&gt;   &lt;fct&gt;  &lt;fct&gt;   &lt;date&gt;            &lt;dbl&gt;         &lt;dbl&gt;        &lt;int&gt;
+#&gt; 1 1      5       2010-09-14         3.03             1           NA
+#&gt; # ... with 3 more variables: channels_rank &lt;int&gt;, bbc_iplayer_requests &lt;dbl&gt;,
+#&gt; #   episode_count &lt;dbl&gt;
 ```
 
   
@@ -970,6 +946,41 @@ ggplot(viewers, aes(episode, viewers,
   labs(x = "Episode", 
        y = "Viewers (millions)") +
   expand_limits(y = 0) 
+#&gt; Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not
+#&gt; found in Windows font database
+
+#&gt; Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not
+#&gt; found in Windows font database
+#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+#&gt; family not found in Windows font database
+
+#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+#&gt; family not found in Windows font database
+
+#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+#&gt; family not found in Windows font database
+
+#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+#&gt; family not found in Windows font database
+
+#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+#&gt; family not found in Windows font database
+
+#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+#&gt; family not found in Windows font database
+
+#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+#&gt; family not found in Windows font database
+
+#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+#&gt; family not found in Windows font database
+#&gt; Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+#&gt; font family not found in Windows font database
+#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+#&gt; family not found in Windows font database
+
+#&gt; Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+#&gt; family not found in Windows font database
 ```
 
 &lt;img src="01-basics_files/figure-html/unnamed-chunk-27-1.png" width="60%" style="display: block; margin: auto;" /&gt;
@@ -1047,16 +1058,17 @@ glimpse(ratings)
 
 ```r
 glimpse(ratings)
-#&gt; Observations: 84
-#&gt; Variables: 8
-#&gt; $ series               &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3…
-#&gt; $ episode              &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 1…
-#&gt; $ uk_airdate           &lt;date&gt; 2010-08-17, 2010-08-24, 2010-08-31, 2010-0…
-#&gt; $ viewers_7day         &lt;dbl&gt; 2.24, 3.00, 3.00, 2.60, 3.03, 2.75, 3.10, 3…
-#&gt; $ viewers_28day        &lt;dbl&gt; 7, 3, 2, 4, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1…
-#&gt; $ network_rank         &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ channels_rank        &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ bbc_iplayer_requests &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; Rows: 94
+#&gt; Columns: 9
+#&gt; $ series               &lt;fct&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3~
+#&gt; $ episode              &lt;fct&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3~
+#&gt; $ uk_airdate           &lt;date&gt; 2010-08-17, 2010-08-24, 2010-08-31, 2010-09-07, ~
+#&gt; $ viewers_7day         &lt;dbl&gt; 2.24, 3.00, 3.00, 2.60, 3.03, 2.75, 3.10, 3.53, 3~
+#&gt; $ viewers_28day        &lt;dbl&gt; 7, 3, 2, 4, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1~
+#&gt; $ network_rank         &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+#&gt; $ channels_rank        &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+#&gt; $ bbc_iplayer_requests &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+#&gt; $ episode_count        &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15~
 ```
 
 ]
@@ -1079,16 +1091,17 @@ glimpse(ratings)
 
 
 ```
-#&gt; Observations: 84
-#&gt; Variables: 8
-#&gt; $ series               &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3…
-#&gt; $ episode              &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 1…
-#&gt; $ uk_airdate           &lt;date&gt; 2010-08-17, 2010-08-24, 2010-08-31, 2010-0…
-#&gt; $ viewers_7day         &lt;dbl&gt; 2.24, 3.00, 3.00, 2.60, 3.03, 2.75, 3.10, 3…
-#&gt; $ viewers_28day        &lt;dbl&gt; 7, 3, 2, 4, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1…
-#&gt; $ network_rank         &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ channels_rank        &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-#&gt; $ bbc_iplayer_requests &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; Rows: 94
+#&gt; Columns: 9
+#&gt; $ series               &lt;fct&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3~
+#&gt; $ episode              &lt;fct&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3~
+#&gt; $ uk_airdate           &lt;date&gt; 2010-08-17, 2010-08-24, 2010-08-31, 2010-09-07, ~
+#&gt; $ viewers_7day         &lt;dbl&gt; 2.24, 3.00, 3.00, 2.60, 3.03, 2.75, 3.10, 3.53, 3~
+#&gt; $ viewers_28day        &lt;dbl&gt; 7, 3, 2, 4, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1~
+#&gt; $ network_rank         &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+#&gt; $ channels_rank        &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+#&gt; $ bbc_iplayer_requests &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
+#&gt; $ episode_count        &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15~
 ```
 
 ]
@@ -1212,9 +1225,9 @@ str(knitr::opts_chunk$get())
 #&gt;  $ prompt       : logi FALSE
 #&gt;  $ comment      : chr "#&gt;"
 #&gt;  $ highlight    : logi TRUE
-#&gt;  $ strip.white  : logi TRUE
 #&gt;  $ size         : chr "normalsize"
 #&gt;  $ background   : chr "#F7F7F7"
+#&gt;  $ strip.white  : 'AsIs' logi TRUE
 #&gt;  $ cache        : logi FALSE
 #&gt;  $ cache.path   : chr "01-basics_cache/html/"
 #&gt;  $ cache.vars   : NULL
@@ -1434,7 +1447,7 @@ _psst...`01-bakeoff-report-alison.Rmd` is there..._
 
 _psst-psst...answers on the next slide..._
 
-<div class="countdown" id="timer_5d91338d" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6202e9c2" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1519,9 +1532,11 @@ class: middle, center
 
 # Time for a break!
 
-<div class="countdown blink-colon noupdate-15" id="timer_5d9131f8" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown blink-colon noupdate-15" id="timer_6202ecde" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">30</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -1572,9 +1587,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -1583,7 +1614,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {

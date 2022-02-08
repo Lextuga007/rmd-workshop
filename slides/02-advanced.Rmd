@@ -20,8 +20,6 @@ output:
     includes:
       in_header: assets/header.html  
 params:
-  wifi_network: "Functions"
-  wifi_password: "Stata_16"
   site_link: "https://ysc-rmarkdown.netlify.com/"
   cloud_link: "http://bit.ly/ysc-rmarkdown"
   github_link: "https://github.com/ysc2019-workshop/02-advanced"
@@ -70,16 +68,6 @@ output formats to html-
 -cover here render from command line and go deeper into looping over parameters as well as output formats
 -->
 
----
-class: middle, center
-
-# <i class="fas fa-cloud"></i>
-
-# Go here and log in (free):
-
-[`r params$cloud_link`](`r params$cloud_link`)
-
----
 layout: true
 
 <div class="my-footer"><span>`r params$site_link`</span></div>
