@@ -1,8 +1,8 @@
 ---
 title: "R Markdown Basics"
 session: "01"
-subtitle: "Young Statisticians Conference 2019"
-author: Alison Hill
+subtitle: "Adapted from slides by Alison Hill"
+author: Zoë Turner
 date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
@@ -16,12 +16,11 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9"
-      beforeInit: "https://platform.twitter.com/widgets.js"
     includes:
       in_header: assets/header.html  
 params:
-  site_link: "https://ysc-rmarkdown.netlify.com/"
-  cloud_link: "http://bit.ly/ysc-rmarkdown"
+  site_link: "https://philosopher-analyst.netlify.app/rmd-workshop/"
+  cloud_link: "https://rstudio.cloud/"
   github_link: "https://github.com/ysc2019-workshop/01-basics"
 ---
 
@@ -39,26 +38,11 @@ library(countdown)
 library(ymlthis)
 library(tidyverse)
 library(bakeoff)
-library(extrafont)
-# update those defaults
-update_font_defaults <- function(font_choice = "Lato") {
+library(xaringanExtra)
 
-    ggplot2::update_geom_defaults("text", list(family = font_choice))
-    ggplot2::update_geom_defaults("label", list(family = font_choice))
-    
-}
-
-theme_bakeoff <- function(font_choice = "Lato"){ 
-  
-  update_font_defaults()
-  
-  ggplot2::theme_minimal(base_family = font_choice)
-  
-}
-ggplot2::theme_set(theme_bakeoff())
+xaringanExtra::use_clipboard()
+xaringanExtra::use_share_again() # need to get the slide button on html view
 ```
-
-
 
 class: title-slide, center, middle
 
@@ -71,7 +55,7 @@ class: title-slide, center, middle
 
 ## `r rmarkdown::metadata$subtitle`
 
-### `r rmarkdown::metadata$author` &#183; RStudio
+### `r rmarkdown::metadata$author` 
 
 #### [`r params$site_link`](`r params$site_link`)
 
@@ -81,40 +65,18 @@ class: middle, center
 
 | Time          | Activity                                                      |
 |:--------------|:--------------------------------------------------------------|
-| 09:00 - 10:30 | Session 1 (R Markdown Basics)                                 |
-| 10:30 - 11:00 | *Break* `r emo::ji("coffee")`                                 |
-| 11:00 - 12:30 | Session 2 (Advanced R Markdown)                               |
-| 12:30 - 01:30 | *Lunch* `r emo::ji("bento")`                                  |
-| 01:30 - 03:00 | Session 3 (Templates)                                         |
-| 03:00 - 03:30 | *Break* `r emo::ji("tea")`                                    |
-| 03:30 - 05:00 | Session 4 (Collections)                                       |
+| 09:30 - 11:00 | Session 1 (R Markdown Basics)                                 |
+| 11:00 - 11:30 | *Break* `r emo::ji("coffee")`                                 |
+| 11:30 - 13:00 | Session 2 (Advanced R Markdown)                               |
+| 13:00 - 14:00 | *Lunch* `r emo::ji("bento")`                                  |
+| 14:00 - 15:30 | Session 3 (Templates)                                         |
+| 15:30 - 16:00 | *Break* `r emo::ji("tea")`                                    |
+| 16:00 - 16:30 | Session 4 (Collections)                                       |
 
 ---
 layout: true
 
 <div class="my-footer"><span>`r params$site_link`</span></div>
-
----
-background-image: url(images/hello-red.jpg)
-background-position: top center
-background-size: 100%
-class: middle, center
-
-.pull-left[
-### Alison Hill  
-[<i class="fab fa-github"></i> @apreshill](https://github.com/apreshill)  
-[<i class="fab fa-twitter"></i> @apreshill](https://twitter.com/apreshill)
-
-]
-
-.pull-right[
-### Emi Tanaka  
-[<i class="fab fa-github"></i> @emitanaka](https://github.com/emitanaka)  
-[<i class="fab fa-twitter"></i> @statsgen](https://twitter.com/statsgen)
-
-]
-
-.footnote[All content is CC-BY. All art (unless otherwise noted) is by [Desirée De Leon](https://desiree.rbind.io/), CC-BY-NC-ND.]
 
 ---
 
@@ -150,86 +112,6 @@ class: middle, center
 1. Wizardry. (`r emo::ji("wizard")`)
 
 ]
-
----
-class: middle, center
-
-# Change your mental model
-
-.pull-left[
-
-### Source &harr; output
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("images/word.png")
-```
-
-]
-
-.pull-right[
-
-### Source &rarr; output
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("images/rmd-file.png")
-```
-
-]
-
----
-class: middle, center
-
-# Change your mental model
-
-.pull-left[
-
-### Source &harr; output
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("images/haba-elise.jpg")
-```
-
-]
-
-.pull-right[
-
-### Source &rarr; output
-
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("images/doll.png")
-```
-
-]
-
----
-background-image: url(images/welliewishers/Slide1.png)
-background-size: cover
-class: top, center
-
-.footnote[https://www.americangirl.com/shop/c/welliewishers]
-
----
-background-image: url(images/welliewishers/Slide2.png)
-background-size: cover
-class: top, center
-
-.footnote[https://www.americangirl.com/shop/c/welliewishers]
-
----
-class: middle, inverse, center
-
-# Same ~~doll~~ source
-
-# Different occasions
-
----
-class: middle, center
-
-# `html_document`
-
-```{r echo=FALSE, out.width="40%"}
-knitr::include_graphics("images/doll.png")
-```
 
 ---
 
@@ -311,9 +193,33 @@ knitr::include_graphics("images/cloud-from-https.png")
 
 .right-column[
 
-# Last step!
+# Install packages
 
-I promise! Still in rstudio.cloud:
+```{r eval=FALSE}
+install.packages(c("tidyverse", "rmarkdown", "here", 
+                   "glue", "usethis", "wesanderson"))
+```
+
+]
+
+???
+When the rmds are opened RStudio will say along the top if there are any references
+to packages that haven't been installed but the next slide includes a package that 
+isn't in the code {usethis}
+
+---
+
+.left-column[
+
+# <i class="fas fa-cloud"></i>
+
+]
+
+.right-column[
+
+# Connect to GitHub
+
+Still in rstudio.cloud:
 
 ```{r eval=FALSE}
 library(usethis)
@@ -331,7 +237,7 @@ class: your-turn
 
 # Your turn
 
-Find a partner and look at `01-bakeoff-report.Rmd` together. 
+Time to look at `01-bakeoff-report.Rmd`. 
 Look at the source, then `r emo::ji("yarn")` **Knit** to HTML.
 
 Try to identify these parts in the source and the output:
@@ -356,7 +262,7 @@ class: live-code
 
 # Basic anatomy I
 
-We look at the source anatomy for `01-bakeoff-report.Rmd` together:
+We look at the *source* anatomy for `01-bakeoff-report.Rmd` together:
 
 1. The **metadata**
 
@@ -364,26 +270,18 @@ We look at the source anatomy for `01-bakeoff-report.Rmd` together:
 
 1. The **code**
     
+
+???
+Point out the parts in the Rmd script. For further documentation on metadata
+https://rmarkdown.rstudio.com/docs/reference/rmd_metadata.html
+    
 ---
-class: center, middle
 
-```{r knit-html, echo=FALSE, out.width="50%"}
-knitr::include_graphics("images/Knit-to-html.jpg")
-```
-
----
-class: center, middle
-
-```{r do-live, echo=FALSE, out.width="50%"}
-knitr::include_graphics("images/doc-live.jpg")
-```
-
----
 class: live-code
 
 # Basic anatomy II
 
-We look at the output anatomy for `01-bakeoff-report.Rmd` together:
+We look at the *output* anatomy for `01-bakeoff-report.Rmd` together:
 
 1. The **metadata**
 
@@ -403,7 +301,7 @@ background-size: contain
 ---
 class: middle, center
 
-# What is inside?
+# What is inside in more detail?
 
 ![](images/doc-make.jpg)
 
@@ -427,7 +325,6 @@ class: middle, center, inverse
 
 _"YAML Ain't Markup Language"_
 
-
 ```yaml
 ---
 key: value
@@ -443,6 +340,11 @@ knitr::include_graphics("images/orchestra.jpg")
 ```
 
 ]
+
+???
+
+Using the {ymlthis} this section renders the "look" of the YAML with the three 
+dashes then key: value which is the format used in YAML. 
 
 ---
 class: middle, center
@@ -487,7 +389,7 @@ class: your-turn
 
 ## Add output options to YAML
 
-Use `?html_document` from your R console to:
+Use `?html_document` from your R console to find the code to:
 
 1. Add a floating table of contents
 
@@ -534,6 +436,13 @@ yml_empty() %>%
   ) %>% 
   asis_yaml_output()
 ```
+
+???
+
+Some may be familiar to the concept of parameters from SQL where code use in multiple
+places later in the script are written at the top so they can be easily changed. 
+
+This is a particular example of this 'hard coding' of parameters.
 
 ---
 class: your-turn
@@ -619,6 +528,9 @@ class: inverse, center, middle
 ```
 ]
 
+???
+Make sure that there is a space between the hashes and the text as it won't be picked up otherwise.
+
 --
 
 .pull-right[
@@ -643,6 +555,9 @@ class: middle, center
 knitr::include_graphics("images/rmd-nav.png")
 ```
 
+???
+Navigate chunks by using the menu in RStudio. Chunks will work without names but
+will have default names like Chunk 1, Chunk 2 and so on.
 
 ---
 
@@ -667,6 +582,33 @@ is a British television baking competition.
 is a British television baking competition. 
 
 ]
+
+???
+
+Using markdown language we format text as bold or italics. 
+
+---
+class: middle, center
+
+# <center>Visual Markdown Editing</center>
+
+--
+
+![Screenshot of Visual Editor button, looks like an A, also a compass](images/visual-editor-rstudio.PNG)
+
+???
+
+As of [RStudio version 1.4](https://www.rstudio.com/blog/rstudio-v1-4-preview-visual-markdown-editing/)
+there is now Visual Markdown Editing, located in the Editor pane (when an RMarkdown script is open)
+
+---
+class: middle, center
+
+# <center>Default to Visual Editor</center>
+
+--
+
+![Screenshot of Tools/Global Options/RMarkdown/Visual with option to make Editor view default](images/visual-editor-default.PNG)
 
 ---
 class: top
@@ -729,7 +671,7 @@ Competitive baking, such as making Victoria
 sponge (_pictured_), is part of the classic 
 English village fête,
 which inspired the series.
-![](http://bit.ly/blue-ribbon-sponge)
+![Alt text: picture of a sponge cake from a village competition](http://bit.ly/blue-ribbon-sponge)
 ```
 ]
 
@@ -740,8 +682,72 @@ Competitive baking, such as making Victoria
 sponge (_pictured_), is part of the classic 
 English village fête,
 which inspired the series.
-![](http://bit.ly/blue-ribbon-sponge)
+![Alt text: picture of a sponge cake from a village competition](http://bit.ly/blue-ribbon-sponge)
 ]
+
+???
+
+A simple markdown code line for linking to an image online. html can be used
+too which can be useful if you need to resize the pictures.
+
+---
+
+# <center>Images - html</center>
+
+--
+
+.pull-left[
+```markdown
+Competitive baking, such as making Victoria 
+sponge (_pictured_), is part of the classic 
+English village fête,
+which inspired the series.
+<div id="bg">
+  <img src="http://bit.ly/blue-ribbon-sponge" alt="picture of a sponge cake from a village competition">
+</div> 
+```
+]
+
+--
+
+.pull-right[
+Competitive baking, such as making Victoria 
+sponge (_pictured_), is part of the classic 
+English village fête,
+which inspired the series.
+<div id="bg">
+  <img src="http://bit.ly/blue-ribbon-sponge" alt="Picture of a sponge cake from a village competition">
+</div> 
+]
+
+???
+html can be used too 
+
+---
+
+# <center>Alt Text</center>
+
+--
+
+.pull-left[
+When images break, they still make sense
+]
+
+--
+
+.pull-right[
+Competitive baking, such as making Victoria 
+sponge (_pictured_), is part of the classic 
+English village fête,
+which inspired the series.
+![Alt text: picture of a sponge cake from a village competition](http://bit.ly/blue-ribbon)
+]
+
+
+???
+Alternative text is useful for people who use screen readers but also helpful 
+for when the image link breaks, you now get a description of what you should be 
+seeing.
 
 ---
 
@@ -756,9 +762,9 @@ sponge (_pictured_), is part of the classic
 English village fête,
 which inspired the series.
 
-[Photo](https://en.wikipedia.org/)
+[Photo](https://en.wikipedia.org/wiki/Philosophy)
 
-![](http://bit.ly/blue-ribbon-sponge)
+![Alt text: picture of a sponge cake from a village competition](http://bit.ly/blue-ribbon-sponge)
 ```
 ]
 
@@ -770,16 +776,51 @@ sponge (_pictured_), is part of the classic
 English village fête,
 which inspired the series.
 
-[Photo](https://en.wikipedia.org/)
+[Photo](https://en.wikipedia.org/wiki/Philosophy)
 
-![](http://bit.ly/blue-ribbon-sponge)
+![Alt text: picture of a sponge cake from a village competition](http://bit.ly/blue-ribbon-sponge)
 ]
 
 ---
+
+# <center>Links - html</center>
+
+--
+
+.pull-left[
+```markdown
+Competitive baking, such as making Victoria 
+sponge (_pictured_), is part of the classic 
+English village fête,
+which inspired the series.
+  <a href="https://en.wikipedia.org/wiki/Philosophy">
+  <img src="http://bit.ly/blue-ribbon-sponge" alt="Picture of a sponge cake from a village competition" 
+  </a>
+```
+]
+
+--
+
+.pull-right[
+Competitive baking, such as making Victoria 
+sponge (_pictured_), is part of the classic 
+English village fête,
+which inspired the series.
+  <a href="https://en.wikipedia.org/wiki/Philosophy">
+  <img src="http://bit.ly/blue-ribbon-sponge" alt="Picture of a sponge cake from a village competition" 
+  </a>
+]
+
+???
+A good site for more information on html is [W3schools](https://www.w3schools.com/html/html_images.asp)
+
+
+---
+
 name: 03-formative
 class: middle
 
-# Pop quiz
+# Quiz
 
 --
 
@@ -855,6 +896,13 @@ ratings %>%
 
 ]
 
+???
+
+This is a view of the data that would normally go to the Console so includes information
+like data types.
+
+Copy and paste into the `01-bakeoff-report.Rmd` and knit to see it in the report.
+
 ---
 
 # Code chunks
@@ -882,9 +930,12 @@ top_viewers <- ratings %>%
   filter(series == 1) %>% 
   top_n(1, viewers_7day)
 ```
-
-  
 ]
+
+???
+
+Not quite what we expect as this is just the code showing, not the results, which
+is the main aim of RMarkdown. 
 
 ---
 
@@ -897,11 +948,15 @@ top_viewers <- ratings %>%
 top_viewers <- ratings %>% 
   filter(series == 1) %>% 
   top_n(1, viewers_7day)
+  
 top_viewers
 ```
 ````
 
 ]
+
+???
+Adding the object name to run - will that show the results?
 
 --
 
@@ -911,11 +966,14 @@ top_viewers
 top_viewers <- ratings %>% 
   filter(series == 1) %>% 
   top_n(1, viewers_7day)
+
 top_viewers
 ```
 
-  
 ]
+
+???
+Yes, but with the data column types again.
 
 ---
 
@@ -978,9 +1036,9 @@ Together we:
 
 1. Add chunks with button or:
 
-   Command (or Cmd) `⌘` + Option (or Alt) `⌥` +  `i` (Mac)
-  
    Ctrl + Alt + `i` (Windows/Linux)
+   
+   Command (or Cmd) `⌘` + Option (or Alt) `⌥` +  `i` (Mac)
    
 1. Run chunks by:
 
@@ -988,6 +1046,11 @@ Together we:
    
    Knit button / run all chunks
 
+???
+
+Shortcut key to run a chunk Ctrl + Shift + Enter
+
+Shortcuts for chunks can be amended or added in Tools/Modify Keyboard Shortcuts...
 
 ---
 
@@ -999,6 +1062,9 @@ The top viewed episode in series 1 was episode
 ``` `r knitr::inline_expr('top_viewers %>% pull(episode)')` ```
 
 ]
+
+???
+Combining code with text.
 
 --
 
@@ -1019,7 +1085,7 @@ class: inverse, center, middle
 
 --
 
-# Output
+# Controlling Output
 
 ---
 
@@ -1043,6 +1109,9 @@ glimpse(ratings)
 
 ]
 
+???
+Just a plain r means that R code runs. Chunks can also be SQL - requires SQL connections.
+
 ---
 
 # echo
@@ -1064,6 +1133,9 @@ glimpse(ratings)
 ```
 
 ]
+
+???
+Echo (showing code) is default to TRUE. Setting to FALSE just returns the results, no code.
 
 ---
 
@@ -1087,6 +1159,11 @@ glimpse(ratings)
 
 ]
 
+???
+Eval is short for evaluate and if set to FALSE stops the code from running. 
+Good if the code is an example of broken code which would stop the report from 
+running if set to TRUE (which is default).
+
 ---
 
 # include
@@ -1108,6 +1185,13 @@ glimpse(ratings)
 ```
 
 ]
+
+???
+
+[From RStudio lesson](https://rmarkdown.rstudio.com/lesson-3.html):
+
+FALSE prevents code and results from appearing in the finished file. 
+R Markdown still runs the code in the chunk, and the results can be used by other chunks.
 
 ---
 
@@ -1131,6 +1215,22 @@ glimpse(ratings)
 
 ]
 
+???
+
+Note here the code has more than one control and they are separated by a comma.
+
+[From RMarkdown tips](https://garthtarr.github.io/meatR/tips.html):
+
+results = 'hide' hide the results of the chunk output (i.e. don’t show them)
+results = 'hold' hold the results of the chunk output until all commands in the 
+chunk have been run
+
+[On 'asis'](https://garrettgman.github.io/rmarkdown/authoring_rcodechunks.html)
+Note the use of the results='asis' chunk option. This is required to ensure that
+the raw table output isn’t processed further by knitr. The kable function 
+includes several options to control the maximum number of digits for numeric 
+columns, alignment, etc (refer to the knitr package documentation for additional
+details)
 ---
 
 # message / warning
@@ -1139,7 +1239,10 @@ glimpse(ratings)
 
 ![](https://www.tidyverse.org/images/tidyverse_1.2.0/tidyverse_1-2-0_pkg_load.gif)
 
+???
 
+This is an example of a detailed message from {tidyverse} but what if you wanted 
+to not print that message when a chunk was run?
 
 ---
 
@@ -1165,19 +1268,6 @@ library(tidyverse)
 
 ---
 
-.left-column[
-# Default options
-]
-
-.right-column[
-```{r}
-str(knitr::opts_chunk$get())
-```
-
-]
-
----
-
 # Chunk option take-aways
 
 + Place between curly braces<br>`{r option=value}`
@@ -1185,6 +1275,11 @@ str(knitr::opts_chunk$get())
 + Multiple options separated by commas<br>`{r option1=value, option2=value}`
 
 + Careful! The `r` part is the **code engine** (other engines possible)
+
+???
+
+Such as sql which will require a database connection. Training and exercises available
+through the NHS-R Community, [link here](https://philosopher-analyst.netlify.app/intro-r/nhsr-intro/11-sql-connection/)
 
 ---
 
@@ -1225,30 +1320,11 @@ glimpse(ratings)
 
 ???
 
-how can we make it easier on ourselves to explore the code in here?
-
-show how to add chunk labels and view in IDE interactively
-
----
-class: middle, center
-
-# Pet or livestock?
-
-.pull-left[
-
-![](https://cdn.images.express.co.uk/img/dynamic/128/590x/Barry-the-Lamb-770211.jpg)
-
-]
-
-.pull-right[
-
-![](images/christopher-burns-215Fiqh6hRc-unsplash.jpg)
-
-]
-
-.footnote[https://masalmon.eu/2017/08/08/chunkpets/; https://www.express.co.uk/news/nature/770211/pet-sheep-lamb-rasied-dog-farm-nature]
+Live code example with the peek chunk, knit then repeat the chunk either by copying
+or using Ctrl + Alt + i for a new chunk and then typing head(ratings)
 
 ---
+
 class: middle, center
 
 # A good chunk label
@@ -1326,8 +1402,14 @@ We do this together:
 
 1. Knit and behold
 
-1. We add it to a global setup chunk.
 
+???
+Copy the fig.path = "figs/" and paste into the chunk settings for the first chart.
+When this is run there is noticeably change to the report but a folder appears, called
+figs and in there is `unnamed-chunk-2-1.png`.
+
+If fig.path = "figs" is used instead the chart is not saved into a folder but in the main
+area and the name is a concatenation of figs and the default `figsunnamed-chunk-2-1.png`
 
 ---
 class: your-turn
@@ -1336,13 +1418,13 @@ class: your-turn
 
 Customize this report.
 
-1. Label the code chunk with your plot in it.
+1. Label the code chunks with plots.
 
-1. Add your setup chunk.
+1. Add your setup chunk. 
 
 1. Use the RStudio outline pane; rejoice!
 
-1. Build a [graphical user interface](https://bookdown.org/yihui/rmarkdown/params-knit.html#the-interactive-user-interface) for parameters.
+1. Build a [graphical user interface](https://bookdown.org/yihui/rmarkdown/params-knit.html#the-interactive-user-interface) for parameters. 
 
 __If this was easy,__ try adding a parameter for color palette and add in a package like [wesanderson](https://github.com/karthik/wesanderson) &mdash; use the parameter in our ggplot2 code.
 
@@ -1359,7 +1441,14 @@ class: your-turn
 
 # Answers
 
-
+````
+```{r setup, include=FALSE}`r ''`
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning = FALSE,
+                      message = FALSE,
+                      fig.path = "alison-figs/")
+```
+````
 
 ```yaml
 params:
@@ -1381,39 +1470,26 @@ params:
 
 
 ---
-class: inverse, middle, center
 
-# `r emo::ji("postbox")`
-
-.large[https://app.netlify.com/drop]
-
----
-class: live-code
-
-# Clean your url up
-
-We live demo changing the main "landing page" name to `index.Rmd`, knit, then deploy again: https://app.netlify.com/drop
-
----
 class: middle, center
 
 # Take-aways
 
 --
 
-`r emo::ji("heavy_check_mark")` **Document your document:** use YAML to set up meaningful metadata
+`r emo::ji("heavy_check_mark")` **Document your document:** use YAML to control the metadata
 
 --
 
-`r emo::ji("heavy_check_mark")` **Style your document:** use YAML to add options to your chosen output format
+`r emo::ji("heavy_check_mark")` **Style your document:** use YAML to set the output format
 
 --
 
-`r emo::ji("heavy_check_mark")` **Organize your text:** use markdown headers with `#`
+`r emo::ji("heavy_check_mark")` **Organise your text:** use markdown headers with `#`
 
 --
 
-`r emo::ji("heavy_check_mark")` **Organize your code:** use `knitr` chunk labels
+`r emo::ji("heavy_check_mark")` **Organise your code:** use `knitr` chunk labels
 
 --
 
@@ -1439,4 +1515,21 @@ class: middle, center
 countdown(minutes = 30, update_every = 15)
 ```
 
+---
 
+background-position: top center
+background-size: 100%
+class: middle, center
+
+Original authors
+
+### Alison Hill  
+[<i class="fab fa-github"></i> @apreshill](https://github.com/apreshill)  
+[<i class="fab fa-twitter"></i> @apreshill](https://twitter.com/apreshill)
+
+### Emi Tanaka  
+[<i class="fab fa-github"></i> @emitanaka](https://github.com/emitanaka)  
+[<i class="fab fa-twitter"></i> @statsgen](https://twitter.com/statsgen)
+
+
+.footnote[All content is CC-BY. All art (unless otherwise noted) is by [Desirée De Leon](https://desiree.rbind.io/), CC-BY-NC-ND.]

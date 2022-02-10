@@ -274,12 +274,12 @@ div.my-footer span {
 }
 
 
-h1#pop-quiz {
+h1#quiz {
   color: #E7553C;
   font-size: 4em;
 }
 
-h1#pop-quiz:before {
+h1#quiz:before {
     content: "";
     display: inline-block;
     background: url("../lightbulb-color.png") no-repeat;

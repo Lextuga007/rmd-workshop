@@ -1,8 +1,8 @@
 ---
-title: "Advanced R Markdown"
+title: "R Markdown Advanced"
 session: "02"
-subtitle: "Young Statisticians Conference 2019"
-author: Alison Hill
+subtitle: "Adapted from slides by Alison Hill"
+author: Zoë Turner
 date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
@@ -16,13 +16,11 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9"
-      beforeInit: "https://platform.twitter.com/widgets.js"
     includes:
       in_header: assets/header.html  
 params:
-  site_link: "https://ysc-rmarkdown.netlify.com/"
-  cloud_link: "http://bit.ly/ysc-rmarkdown"
-  github_link: "https://github.com/ysc2019-workshop/02-advanced"
+  site_link: "https://philosopher-analyst.netlify.app/rmd-workshop/"
+  cloud_link: "https://rstudio.cloud/"
 ---
 
 ```{r setup, include=FALSE}
@@ -41,6 +39,11 @@ library(ymlthis)
 library(tidyverse)
 library(janitor)
 library(bakeoff)
+library(xaringanExtra)
+
+xaringanExtra::use_clipboard()
+xaringanExtra::use_share_again() # need to get the slide button on html view
+
 ```
 
 
@@ -57,7 +60,7 @@ class: title-slide, center, middle
 
 ## `r rmarkdown::metadata$subtitle`
 
-### `r rmarkdown::metadata$author` &#183; RStudio
+### `r rmarkdown::metadata$author`
 
 #### [`r params$site_link`](`r params$site_link`)
 
@@ -119,212 +122,143 @@ knitr::include_graphics("https://raw.githubusercontent.com/rstudio/hex-stickers/
 
 --
 
-> The latter renders Markdown to the output format you want (such as PDF, HTML, Word, and so on)."
+> The latter renders Markdown to the output format you want (such as PDF, HTML, Word, Slides, website and so on)."
 
 --
 
 > &mdash; [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 
 ---
-class: center, middle
+class: middle, center, inverse
 
-# Foreshadowing
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
 
+--
 
-```{r echo=FALSE, out.width="40%"}
-knitr::include_graphics("images/outputs.png")
-```
-
-
-
----
-class: pop-quiz
-
-# Pop quiz
-
-
-Which of the following is **NOT** a part of R Markdown basic anatomy?
-
-1. Metadata
-
-1. Text
-
-1. CSS
-
-1. Code
-
-1. Output
-
+# Tabs
 
 ---
-class: your-turn
 
+# <center>Dealing with long reports</center>
 
-# Your turn
+--
 
-## Mad libs style &mdash; with a neighbor
+.pull-left[
 
 ```markdown
- ___________ is written at the top between `---` in ________.
-    noun                                             syntax
-                                                     
-  ______ is written in Markdown.
-   noun         
-  
-  ______ is written in R (or other programming language).
-   noun   
-   
-  The ______ package evaluates the code and produces the ______.
-       noun                                               noun
-```
 
-_psst: answers on next slide..._
+## Series Analyss {.tabset}
 
-```{r echo=FALSE}
-countdown(minutes = 3)
-```
+### Overview
 
----
-class: your-turn
+### Ratings
 
-
-# Your turn
-
-## Answers
-
-```markdown
- Metadata is written at the top between `---` in YAML.
-   (noun)                                      (syntax)
-                                                     
-  Text is written in Markdown.
- (noun)         
-  
-  Code is written in R (or other programming language).
- (noun)   
-   
-  The knitr package evaluates the code and produces the output.
-     (noun)                                             (noun) 
-```
-
-
----
-
-.left-column[
-
-# <i class="fab fa-github"></i>
-
-]
-
-.right-column[
-
-# Go here:
-
-[`r params$github_link`](`r params$github_link`)
-
-Click on "Use this template" (make sure you are logged in)
-
-```{r echo=FALSE}
-knitr::include_graphics("images/cloud-from-template.png")
-```
-
-]
-
----
-
-.left-column[
-
-# <i class="fab fa-github"></i>
-
-]
-
-.right-column[
-
-# In your repo
-
-Click on green button, then the clipboard to copy HTTPS
-
-```{r echo=FALSE}
-knitr::include_graphics("images/cloud-from-https.png")
 ```
 ]
 
----
+--
 
-.left-column[
+.pull-right[
 
-# <i class="fas fa-cloud"></i>
-
-]
-
-.right-column[
-
-# Go to rstudio.cloud:
-
-[`r params$cloud_link`](`r params$cloud_link`)
-
-1. Join space > Click on "Projects" (nothing there)
-
-1. New Project from GitHub Repo
-
-1. Use **your** HTTPS link:
-
-
-  ```{r echo=FALSE, out.width='50%'}
-  knitr::include_graphics("images/cloud-from-git.png")
-  ```
-
-1. Name your project
+![Screenshot of the tabsets with the headers as above](images/tabset.PNG)
 
 ]
 
----
+???
+A Return space/carriage is required between the tabs OR two spaces after the line.
 
-.left-column[
+Note to start a tabset there have to be 2 hashes and not the main header of one #
 
-# <i class="fas fa-cloud"></i>
-
-]
-
-.right-column[
-
-# Last step!
-
-I promise! Still in rstudio.cloud:
-
-```{r eval=FALSE}
-library(usethis)
-use_git_config(
-  scope = "project",
-  user.name = "Jane",
-  user.email = "jane@example.org"
-)
-```
-
-]
 
 ---
 class: your-turn
 
 # Your turn
 
-Find a partner and look at `02-bakeoff-finales.Rmd` together. 
+Looking at `01-bakeoff-report.Rmd` together. 
 Look at the source, then `r emo::ji("yarn")` **Knit**.
 
-Answer the following questions:
+1. Add a header `# Series Analysis`, then `r emo::ji("yarn")` **Knit**.
 
-1. What is the output **format**?
+1. Change `# Overview` to `### Overview {.tabset}`, then `r emo::ji("yarn")` **Knit**.
 
-1. Are there any output **options**?
+1. Change `# Ratings` to `### Ratings`, then `r emo::ji("yarn")` **Knit**.
 
-1. Are any `knitr` **global** chunk options set?
+1. Remove the space in the second header `###Ratings`, then `r emo::ji("yarn")` **Knit**. What happens?
 
-1. Anything in the code look foreign to you? 
-
-1. Anything in the output (or not in the output) surprise you?
 
 ```{r echo = FALSE}
 countdown(minutes = 5)
 ```
+
+---
+
+# <center>Styling tabs</center>
+
+--
+
+.pull-left[
+
+```markdown
+
+## Series Analysis {.tabset, .tabset-fade}
+
+### Overview
+
+### Ratings
+
+```
+]
+
+--
+
+.pull-right[
+
+![Screenshot of the tabsets with the headers as above, pillsets have rounded edges](images/tabset-pills.PNG)
+
+]
+
+---
+class: your-turn
+
+# Dynamic tabs
+
+1. Add a new header `## Days {.tabset .tabset-pill}`
+
+1. <kbd>Ctrl + Alt + i</kbd> for a new R chunk.
+
+1. Add the `results='asis'` in the chunk options.
+
+1. Create a list of days 
+
+```markdown 
+viewers %>% select(days) %>% unique() %>% pull()
+```
+
+1. Copy loop code and add the code where it says <copy the chart code here>:
+
+```markdown
+for(i in days){ 
+  
+  cat("###", i, '<br>', '\n')
+  
+  data <- viewers %>% 
+    filter(days == i) 
+  
+  chart <- <copy the chart code here>
+  
+  print(chart)
+  
+  cat('\n', '<br>', '\n\n')
+  
+}
+```
+
+???
+As with so much in R most things can be automated. If you were to require many tabs to be created for teams/wards/hospitals then automating this using a loop can be useful. First example shared in the [NHS-R Community demos and how tos](https://github.com/nhs-r-community/demos-and-how-tos/blob/main/rmarkdown/loop_tabs/loop_tabs.Rmd)
 
 ---
 class: middle, center, inverse
@@ -337,7 +271,6 @@ class: middle, center, inverse
 --
 
 # Output formats
-
 
 ---
 class: middle, center
