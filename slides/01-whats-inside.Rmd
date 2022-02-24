@@ -54,6 +54,54 @@ class: title-slide, center, middle
 
 ---
 
+class: top
+
+.left-column[
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #f2e255;"></i>
+  <strong class="fa-stack-1x" style="color: #fff;">?</strong>
+</span> 
+
+]
+
+
+.right-column[
+
+# How *does* R Markdown work?
+
+1. `r emo::ji("shrug")` (`r emo::ji("heavy_check_mark")`)
+
+1. ["I press knit, a document appears, and I believe that anything happening in between could be actual magic."](https://twitter.com/allison_horst/status/1070323369600442368?s=20) (`r emo::ji("wizard")`)
+
+1. `knitr` executes the code and converts `.Rmd` to `.md`; **Pandoc** renders the `.md` file to the output format you want. (`r emo::ji("heavy_check_mark")`)
+
+]
+
+---
+
+class: middle, center
+
+```{r echo = FALSE, out.width="25%", fig.align="center"}
+knitr::include_graphics("https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png")
+```
+
+
+> "In a nutshell, R Markdown stands on the shoulders of `knitr` and **Pandoc**.
+
+--
+
+> The former executes the computer code embedded in Markdown, and converts R Markdown to Markdown.
+
+--
+
+> The latter renders Markdown to the output format you want (such as PDF, HTML, Word, Slides, website and so on)."
+
+--
+
+> &mdash; [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+
+---
+
 class: inverse, center, middle
 
 # <center>Metadata</center>
@@ -240,6 +288,7 @@ Now click on knit button and pick __"Knit with Parameters."__ How is this differ
 countdown(minutes = 3)
 ```
 
+---
 
 class: middle, center
 
@@ -248,7 +297,6 @@ class: middle, center
 # Time for a break!
 
 ```{r echo = FALSE}
-countdown(minutes = 10, update_every = 15)
+countdown(minutes = 5, update_every = 60)
 ```
 
----

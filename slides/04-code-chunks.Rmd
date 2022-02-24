@@ -763,7 +763,7 @@ class: middle, center
 # Time for lunch!
 
 ```{r echo = FALSE}
-countdown(minutes = 60, update_every = 15)
+countdown(minutes = 60, update_every = 60)
 ```
 
 ---

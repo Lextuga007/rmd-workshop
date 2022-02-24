@@ -355,7 +355,7 @@ class: middle, center
 # Time for a break!
 
 ```{r echo = FALSE}
-countdown(minutes = 10, update_every = 15)
+countdown(minutes = 5, update_every = 5)
 ```
 
 ---

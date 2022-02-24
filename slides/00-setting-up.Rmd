@@ -202,7 +202,7 @@ knitr::include_graphics("images/cloud-from-https.png")
 
 ```{r eval=FALSE}
 install.packages(c("tidyverse", "rmarkdown", "here", 
-                   "glue", "usethis", "wesanderson"))
+                   "glue", "usethis", "distill", "bookdown"))
 ```
 
 ]
