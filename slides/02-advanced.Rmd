@@ -12,7 +12,6 @@ output:
     nature:
       highlightStyle: dracula
       highlightLanguage: ["r", "yaml", "markdown"]
-      slideNumberFormat: "" 
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9"
