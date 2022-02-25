@@ -285,40 +285,6 @@ Chunks will work without names but will have default names like
 * Chunk 2 and so on.
 
 ---
-
-class: inverse, center, middle
-
-# <center>Inline code</center>
-
-<span class="fa-stack fa-4x">
-  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
-  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
-</span> 
-
-???
-Combining code with text!!
-
----
-
-# Inline code
-
-.pull-left[
-
-The top viewed episode in series 1 was episode
-``` `r knitr::inline_expr('top_viewers %>% pull(episode)')` ```
-
-]
-
---
-
-.pull-right[
-
-The top viewed episode in series 1 was episode
-`r top_viewers %>% pull(episode)`
-
-]
-
----
 class: inverse, center, middle
 
 # Controlling Output
@@ -716,44 +682,6 @@ params:
     input: select
     choices: [GrandBudapest1, Darjeeling1, Darjeeling2, FantasticFox1, Royal2]
 ```
-
-
-
-
----
-
-class: middle, center
-
-# Take-aways
-
---
-
-`r emo::ji("heavy_check_mark")` **Document your document:** use YAML to control the metadata
-
---
-
-`r emo::ji("heavy_check_mark")` **Style your document:** use YAML to set the output format
-
---
-
-`r emo::ji("heavy_check_mark")` **Organise your text:** use markdown headers with `#`
-
---
-
-`r emo::ji("heavy_check_mark")` **Organise your code:** use `knitr` chunk labels
-
---
-
-`r emo::ji("heavy_check_mark")` **Style your text:** use markdown **bold**, _italics_, <i class="fas fa-list-ul"></i> bullets, and <i class="fas fa-list-ol"></i> lists
-
---
-
-`r emo::ji("heavy_check_mark")` **Style your output:** use `knitr` chunk options
-
---
-
-`r emo::ji("yarn")` early, `r emo::ji("yarn")` often
-
 
 ---
 class: middle, center

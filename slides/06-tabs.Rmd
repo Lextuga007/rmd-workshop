@@ -1,6 +1,6 @@
 ---
 title: "Tabs"
-session: "05"
+session: "06"
 subtitle: "Adapted from slides by Alison Hill (RStudio)"
 author: Zoë Turner
 date: "`r Sys.Date()`"

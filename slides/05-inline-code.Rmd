@@ -1,0 +1,117 @@
+---
+title: "Inline code"
+session: "05"
+subtitle: "Adapted from slides by Alison Hill (RStudio)"
+author: Zoë Turner
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/css/my-theme.css", "assets/css/my-fonts.css"]
+    seal: false 
+    lib_dir: libs
+    nature:
+      highlightStyle: dracula
+      highlightLanguage: ["r", "yaml", "markdown"]
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+    includes:
+      in_header: assets/header.html  
+params:
+  site_link: "https://philosopher-analyst.netlify.app/rmd-workshop/"
+  cloud_link: "https://rstudio.cloud/"
+  github_link: "https://github.com/Lextuga007/rm_01_basics"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+episode_counter <- 0
+knitr::opts_chunk$set(
+  collapse = TRUE,   
+  comment = "#>"
+)
+```
+
+```{r packages, include=FALSE}
+library(countdown)
+library(ymlthis)
+library(tidyverse)
+library(bakeoff)
+library(xaringanExtra)
+
+xaringanExtra::use_clipboard()
+xaringanExtra::use_share_again() # need to get the slide button on html view
+
+# Data used in inline code
+
+top_viewers <- ratings %>% 
+  filter(series == 1) %>% 
+  top_n(1, viewers_7day)
+
+```
+
+class: title-slide, center, middle
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #ffffffcc;"></i>
+  <strong class="fa-stack-1x" style="color:#e7553c;">`r rmarkdown::metadata$session`</strong>
+</span> 
+
+# `r rmarkdown::metadata$title`
+---
+
+class: inverse, center, middle
+
+# <center>Inline code</center>
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+
+???
+Combining code with text!!
+
+---
+
+# Inline text formatting
+
+.pull-left[
+
+A single back tick denotes a `function` and changes the format
+
+A single back tick with r denotes code to be run in R
+``` `r knitr::inline_expr('top_viewers %>% pull(episode)')` ```
+
+]
+
+--
+
+.pull-right[
+
+Same word: `function`
+
+The top viewed episode in series 1 was episode
+`r top_viewers %>% pull(episode)`
+
+]
+
+---
+
+# Inline code
+
+.pull-left[
+
+The top viewed episode in series 1 was episode
+``` `r knitr::inline_expr('top_viewers %>% pull(episode)')` ```
+
+]
+
+--
+
+.pull-right[
+
+The top viewed episode in series 1 was episode
+`r top_viewers %>% pull(episode)`
+
+]

@@ -1,6 +1,6 @@
 ---
 title: "Output formats"
-session: "06"
+session: "07"
 subtitle: "Adapted from slides by Alison Hill (RStudio)"
 author: Zoë Turner
 date: "`r Sys.Date()`"
