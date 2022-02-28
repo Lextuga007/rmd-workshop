@@ -74,7 +74,7 @@ Competitive baking, such as making Victoria
 sponge (_pictured_), is part of the classic 
 English village fête,
 which inspired the series.
-![Alt text: picture of a sponge cake from a village competition](http://bit.ly/blue-ribbon-sponge)
+![](http://bit.ly/blue-ribbon-sponge)
 ```
 ]
 
@@ -85,7 +85,7 @@ Competitive baking, such as making Victoria
 sponge (_pictured_), is part of the classic 
 English village fête,
 which inspired the series.
-![Alt text: picture of a sponge cake from a village competition](http://bit.ly/blue-ribbon-sponge)
+![](http://bit.ly/blue-ribbon-sponge)
 ]
 
 ???
@@ -127,6 +127,29 @@ which inspired the series.
 html can be used too 
 
 ---
+# <center>Images - using knitr</center>
+
+.pull-left[
+
+````
+```{r}`r ''`
+knitr::include_graphics("images/joy-of-fp/bakers_1.png")
+```
+````
+
+]
+
+--
+
+.pull-right[
+```{r echo=FALSE}
+knitr::include_graphics("images/joy-of-fp/bakers_1.png")
+```
+
+]
+
+
+---
 class: inverse, center, middle
 
 # <center>Images - navigating folders</center>
@@ -160,7 +183,7 @@ Linking to an image in the same area as the .rmd file is straightforward, as is 
 
 --
 
-### Folder from working directory
+### Folder from subfolder from the main root
 
 ```markdown
 ![](../images/bakers_3.png)
@@ -217,10 +240,6 @@ When images break, they still make sense ->
 --
 
 .pull-right[
-Competitive baking, such as making Victoria 
-sponge (_pictured_), is part of the classic 
-English village fête,
-which inspired the series.
 ![Alt text: picture of a sponge cake from a village competition](http://bit.ly/blue-ribbon)
 ]
 
@@ -229,6 +248,122 @@ which inspired the series.
 Alternative text is useful for people who use screen readers but also helpful 
 for when the image link breaks, you now get a description of what you should be 
 seeing.
+
+---
+
+# <center>Alt Text</center>
+
+## Markdown 
+
+Between the [] brackets
+
+```markdown
+![Alt text: picture of a sponge cake from a village competition](http://bit.ly/blue-ribbon-sponge)
+```
+
+--
+
+## HTML
+
+Within the <> and space between sections
+
+```markdown
+<div id="bg">
+  <img src="http://bit.ly/blue-ribbon-sponge" alt="picture of a sponge cake from a village competition">
+</div> 
+```
+
+---
+
+# <center>Alt Text continued</center>
+
+## knitr
+
+Use `fig.alt=`
+
+````
+```{r fig.alt="Alt text: picture of a sponge cake from a village competition"}`r ''`
+knitr::include_graphics("images/joy-of-fp/bakers_1.png")
+```
+````
+
+???
+> By default, if you do not provide the fig.alt chunk option, the text in the figure caption provided by the fig.cap chunk option will be used as the alt text. You do not have to use fig.cap to use fig.alt- you may use each chunk option in isolation, but they will also work together.
+
+From a [blog](https://www.rstudio.com/blog/knitr-fig-alt/) on the new feature of {knitr}
+---
+class: inverse, center, middle
+
+# <center>Figure options</center>
+
+<span class="fa-stack fa-4x">
+<i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+<strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+  
+---
+
+# <center>Captions</center>
+
+.pull-left[
+````
+```{r fig.cap="Picture of a sponge cake from a village competition"}`r ''`
+knitr::include_graphics("bakers_1.png")
+```
+````
+]
+
+.pull-right[
+
+```{r echo=FALSE, fig.cap="Picture of a sponge cake from a village competition"}
+
+knitr::include_graphics("images/joy-of-fp/bakers_1.png")
+
+```
+
+]
+
+---
+
+# <center>Resize images</center>
+
+.pull-left[
+````
+```{r, out.width="50%"}`r ''`
+knitr::include_graphics("bakers_1.png")
+```
+````
+]
+
+.pull-right[
+
+```{r echo=FALSE, out.width="50%"}
+
+knitr::include_graphics("images/joy-of-fp/bakers_1.png")
+
+```
+
+]
+
+---
+
+# <center>Centre images</center>
+
+````
+```{r, fig.align='centre'}`r ''`
+knitr::include_graphics("bakers_1.png")
+```
+````
+
+```{r echo=FALSE, fig.align='center', out.width="50%", fig.}
+
+knitr::include_graphics("images/joy-of-fp/bakers_1.png")
+
+```
+
+
+???
+More resizing notes in this [blog](https://sebastiansauer.github.io/figure_sizing_knitr/) 
 
 ---
 
@@ -306,7 +441,6 @@ which inspired the series.
 ???
 A good site for more information on html is [W3schools](https://www.w3schools.com/html/html_images.asp)
 
-
 ---
 
 name: 03-formative
@@ -357,5 +491,3 @@ class: middle, center
 ```{r echo = FALSE}
 countdown(minutes = 5, update_every = 5)
 ```
-
----

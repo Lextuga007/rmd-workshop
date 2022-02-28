@@ -113,7 +113,7 @@ class: inverse, center, middle
 
 ---
 
-# metadata: YAML
+# Metadata - YAML
 
 .pull-left[
 

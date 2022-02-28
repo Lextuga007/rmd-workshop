@@ -4,7 +4,7 @@
     <title>Images</title>
     <meta charset="utf-8" />
     <meta name="author" content="Zoë Turner" />
-    <meta name="date" content="2022-02-24" />
+    <meta name="date" content="2022-02-28" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/clipboard/clipboard.min.js"></script>
@@ -60,7 +60,7 @@ Competitive baking, such as making Victoria
 sponge (_pictured_), is part of the classic 
 English village fête,
 which inspired the series.
-![Alt text: picture of a sponge cake from a village competition](http://bit.ly/blue-ribbon-sponge)
+![](http://bit.ly/blue-ribbon-sponge)
 ```
 ]
 
@@ -71,7 +71,7 @@ Competitive baking, such as making Victoria
 sponge (_pictured_), is part of the classic 
 English village fête,
 which inspired the series.
-![Alt text: picture of a sponge cake from a village competition](http://bit.ly/blue-ribbon-sponge)
+![](http://bit.ly/blue-ribbon-sponge)
 ]
 
 ???
@@ -113,6 +113,27 @@ which inspired the series.
 html can be used too 
 
 ---
+# &lt;center&gt;Images - using knitr&lt;/center&gt;
+
+.pull-left[
+
+````
+```{r}
+knitr::include_graphics("images/joy-of-fp/bakers_1.png")
+```
+````
+
+]
+
+--
+
+.pull-right[
+&lt;img src="images/joy-of-fp/bakers_1.png" width="4000" /&gt;
+
+]
+
+
+---
 class: inverse, center, middle
 
 # &lt;center&gt;Images - navigating folders&lt;/center&gt;
@@ -146,7 +167,7 @@ Linking to an image in the same area as the .rmd file is straightforward, as is 
 
 --
 
-### Folder from working directory
+### Folder from subfolder from the main root
 
 ```markdown
 ![](../images/bakers_3.png)
@@ -203,10 +224,6 @@ When images break, they still make sense -&gt;
 --
 
 .pull-right[
-Competitive baking, such as making Victoria 
-sponge (_pictured_), is part of the classic 
-English village fête,
-which inspired the series.
 ![Alt text: picture of a sponge cake from a village competition](http://bit.ly/blue-ribbon)
 ]
 
@@ -218,13 +235,120 @@ seeing.
 
 ---
 
+# &lt;center&gt;Alt Text&lt;/center&gt;
+
+## Markdown 
+
+Between the [] brackets
+
+```markdown
+![Alt text: picture of a sponge cake from a village competition](http://bit.ly/blue-ribbon-sponge)
+```
+
+--
+
+## HTML
+
+Within the &lt;&gt; and space between sections
+
+```markdown
+&lt;div id="bg"&gt;
+  &lt;img src="http://bit.ly/blue-ribbon-sponge" alt="picture of a sponge cake from a village competition"&gt;
+&lt;/div&gt; 
+```
+
+---
+
+# &lt;center&gt;Alt Text continued&lt;/center&gt;
+
+## knitr
+
+Use `fig.alt=`
+
+````
+```{r fig.alt="Alt text: picture of a sponge cake from a village competition"}
+knitr::include_graphics("images/joy-of-fp/bakers_1.png")
+```
+````
+
+???
+&gt; By default, if you do not provide the fig.alt chunk option, the text in the figure caption provided by the fig.cap chunk option will be used as the alt text. You do not have to use fig.cap to use fig.alt- you may use each chunk option in isolation, but they will also work together.
+
+From a [blog](https://www.rstudio.com/blog/knitr-fig-alt/) on the new feature of {knitr}
+---
+class: inverse, center, middle
+
+# &lt;center&gt;Figure options&lt;/center&gt;
+
+&lt;span class="fa-stack fa-4x"&gt;
+&lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+&lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;4 &lt;/strong&gt;
+&lt;/span&gt; 
+  
+---
+
+# &lt;center&gt;Captions&lt;/center&gt;
+
+.pull-left[
+````
+```{r fig.cap="Picture of a sponge cake from a village competition"}
+knitr::include_graphics("bakers_1.png")
+```
+````
+]
+
+.pull-right[
+
+&lt;div class="figure"&gt;
+&lt;img src="images/joy-of-fp/bakers_1.png" alt="Picture of a sponge cake from a village competition" width="4000" /&gt;
+&lt;p class="caption"&gt;Picture of a sponge cake from a village competition&lt;/p&gt;
+&lt;/div&gt;
+
+]
+
+---
+
+# &lt;center&gt;Resize images&lt;/center&gt;
+
+.pull-left[
+````
+```{r, out.width="50%"}
+knitr::include_graphics("bakers_1.png")
+```
+````
+]
+
+.pull-right[
+
+&lt;img src="images/joy-of-fp/bakers_1.png" width="50%" /&gt;
+
+]
+
+---
+
+# &lt;center&gt;Centre images&lt;/center&gt;
+
+````
+```{r, fig.align='centre'}
+knitr::include_graphics("bakers_1.png")
+```
+````
+
+&lt;img src="images/joy-of-fp/bakers_1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+
+???
+More resizing notes in this [blog](https://sebastiansauer.github.io/figure_sizing_knitr/) 
+
+---
+
 class: inverse, center, middle
 
 # &lt;center&gt;Links&lt;/center&gt;
 
 &lt;span class="fa-stack fa-4x"&gt;
 &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
-&lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;4 &lt;/strong&gt;
+&lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;5 &lt;/strong&gt;
 &lt;/span&gt; 
   
 ---
@@ -292,7 +416,6 @@ which inspired the series.
 ???
 A good site for more information on html is [W3schools](https://www.w3schools.com/html/html_images.asp)
 
-
 ---
 
 name: 03-formative
@@ -340,11 +463,9 @@ class: middle, center
 
 # Time for a break!
 
-<div class="countdown blink-colon noupdate-5" id="timer_6217b54f" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown blink-colon noupdate-5" id="timer_621cb616" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
-
----
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
