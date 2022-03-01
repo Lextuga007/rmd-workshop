@@ -224,13 +224,3 @@ countdown(minutes = 2)
 
 ???
 Running this code in the cloud will prompt an installation of the {bookdown} package which is very quick to load
-
----
-class: inverse, center, middle
-
-# <center>Figures</center>
-
-<span class="fa-stack fa-4x">
-  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
-  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
-</span> 

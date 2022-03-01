@@ -85,6 +85,16 @@ A single back tick with r denotes code to be run in R
 
 ]
 
+???
+The following code will run from a dataset generated in the previous section of Code Chunks:
+
+```{r eval=FALSE, echo=TRUE}
+top_viewers <- ratings %>% 
+  filter(series == 1) %>% 
+  top_n(1, viewers_7day)
+
+```
+
 --
 
 .pull-right[
@@ -95,6 +105,14 @@ The top viewed episode in series 1 was episode
 `r top_viewers %>% pull(episode)`
 
 ]
+
+???
+Inline code can be formatted on screen to be on multiple lines and will still run but the colouring changes:
+
+`r top_viewers %>% 
+pull(episode)`
+
+and automatically indent formatting is lost. It's not a good idea to have a lot of code in inline for ease of debugging.
 
 ---
 
