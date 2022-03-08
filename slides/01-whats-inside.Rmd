@@ -292,7 +292,7 @@ class: middle, center
 # Time for a break!
 
 ```{r echo = FALSE}
-countdown(minutes = 10, update_every = 60)
+countdown(minutes = 10)
 ```
 
 ---

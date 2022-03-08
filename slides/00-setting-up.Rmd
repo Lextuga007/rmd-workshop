@@ -73,11 +73,15 @@ Text ; Images ; Code chunks
 
 --------- 1 hour Lunch -----------
 
-Inline code ; Tabs ; Output Formats
+Inline code ; Tabs 
 
 --------- Break ---------
 
-Command Line ; Parameters ; Loop reports
+Output Formats ; Parameters; Command Line
+
+--------- 10 minutes Break --------- 
+
+Loop reports ; Extras
 
 .green[Finish about 4 - 430pm]
 

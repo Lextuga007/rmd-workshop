@@ -240,6 +240,7 @@ or if you used popthemes:
     input: select
     choices: [aqua, bangles, beck, boo, bwitched]
 ```
+
 ---
 class: inverse
 

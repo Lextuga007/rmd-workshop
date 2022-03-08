@@ -210,6 +210,18 @@ As with so much in R most things can be automated. If you were to require many t
 On 'asis' Note the use of the` results='asis'` chunk option. This is required to ensure that the raw table output isn’t processed further by knitr. The kable function includes several options to control the maximum number of digits for numeric columns, alignment, etc (refer to the knitr package documentation for additional details) - results slide https://lextuga007.github.io/rmd-workshop/slides/04-code-chunks.html#21
 
 ---
+
+class: middle, center
+
+# `r emo::ji("stopwatch")`
+
+# Time for a break!
+
+```{r echo = FALSE}
+countdown(minutes = 10)
+```
+
+---
 class: inverse
 
 # <center>Next section...</center>

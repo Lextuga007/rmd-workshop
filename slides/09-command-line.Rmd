@@ -159,6 +159,19 @@ class: middle, center
 `r emo::ji("exclamation")` **Manual parameters overwrite the output** each output needs to be saved individually - this can be laborious
 
 ---
+
+class: middle, center
+
+# `r emo::ji("stopwatch")`
+
+# Time for a break!
+
+```{r echo = FALSE}
+countdown(minutes = 10)
+```
+
+---
+
 class: inverse
 
 # <center>Next section...</center>
