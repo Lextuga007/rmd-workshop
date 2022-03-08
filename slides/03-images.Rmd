@@ -480,14 +480,3 @@ What about lists? Bulleted? Numbered?
 
 ]
 
----
-
-class: middle, center
-
-# `r emo::ji("stopwatch")`
-
-# Time for a break!
-
-```{r echo = FALSE}
-countdown(minutes = 5, update_every = 5)
-```

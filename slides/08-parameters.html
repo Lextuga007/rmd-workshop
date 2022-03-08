@@ -4,7 +4,7 @@
     <title>Parameters</title>
     <meta charset="utf-8" />
     <meta name="author" content="Zoë Turner" />
-    <meta name="date" content="2022-02-28" />
+    <meta name="date" content="2022-03-07" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/clipboard/clipboard.min.js"></script>
@@ -15,8 +15,6 @@
     <script src="libs/shareon/shareon.min.js"></script>
     <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
-    <link href="libs/countdown/countdown.css" rel="stylesheet" />
-    <script src="libs/countdown/countdown.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/my-theme.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/my-fonts.css" type="text/css" />
@@ -39,7 +37,6 @@ class: title-slide, center, middle
 # Parameters
 
 ---
-
 class: inverse, center, middle
 
 # &lt;center&gt;Parameters in RStudio&lt;/center&gt;
@@ -50,7 +47,6 @@ class: inverse, center, middle
 &lt;/span&gt; 
 
 ---
-
 # &lt;center&gt;Knit with Parameters&lt;/center&gt;
 
 &lt;img src="images/knit-dropdown.PNG" title="Screenshot of the knit dropdown menu" alt="Screenshot of the knit dropdown menu" width="25%" style="display: block; margin: auto;" /&gt;
@@ -67,9 +63,23 @@ This uses {shiny} and may be prompted to install for use
 
 ### in inline code
 
-Report relates to Series ``` `r params$series` ```.
+.pull-left[
+Report relates to Series ``` `r params$series` ```
+
+]
+
+--
+
+.pull-right[
+![Screenshot of the rendered html where code is now shown as text "Series 1"](images/inline-parameter.PNG)
+]
+
+
+---
 
 ### in R code
+
+.pull-left[
 
 
 ```r
@@ -78,34 +88,58 @@ series_ratings &lt;- ratings %&gt;%
 * filter(series == params$series)
 
 ```
+]
 
--
+--
+
+.pull-right[
+
+
+```r
+ratings %&gt;% 
+  filter(series == params$series) %&gt;% 
+  head(5)
+#&gt; # A tibble: 5 x 9
+#&gt;   series episode uk_airdate viewers_7day viewers_28day network_rank
+#&gt;   &lt;fct&gt;  &lt;fct&gt;   &lt;date&gt;            &lt;dbl&gt;         &lt;dbl&gt;        &lt;int&gt;
+#&gt; 1 1      1       2010-08-17         2.24             7           NA
+#&gt; 2 1      2       2010-08-24         3                3           NA
+#&gt; 3 1      3       2010-08-31         3                2           NA
+#&gt; 4 1      4       2010-09-07         2.6              4           NA
+#&gt; 5 1      5       2010-09-14         3.03             1           NA
+#&gt; # ... with 3 more variables: channels_rank &lt;int&gt;, bbc_iplayer_requests &lt;dbl&gt;,
+#&gt; #   episode_count &lt;dbl&gt;
+```
+
+]
+
 ---
-class: inverse, center, middle
 
-# &lt;center&gt;Command line&lt;/center&gt;
-
-&lt;span class="fa-stack fa-4x"&gt;
-  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
-  &lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;2 &lt;/strong&gt;
-&lt;/span&gt; 
-
----
-class: middle, center
-
-# Rendering
+# &lt;center&gt;Shiny Controls&lt;/center&gt;
 
 .pull-left[
-
-So far: 🧶
-
+```yaml
+title: "The Great British Bake Off"
+output: html_document
+params:
+  series: 
+    label: "Series numbers"
+    value: 1
+    input: slider
+    min: 1
+    max: 9
+    step: 1
+```
 ]
 
 .pull-right[
 
-```r
-render("01-bakeoff-report.Rmd")
-```
+* label: text
+* value: starting point
+* input: type of wizard
+* min: minimum that you set
+* max: maximum that you set
+* step: increments (default gives smaller points that don't match data)
 
 ]
 
@@ -114,73 +148,48 @@ class: your-turn
 
 # Your turn
 
-Instead of using the "Knit" button, try running this code in your R console:
+🧶 **Knit** button and `Knit with Parameters...` after each step:
 
+1. Change the `input` parameter from slider to numeric.
 
-```r
-library(rmarkdown) # needs to be loaded first
-render("01-bakeoff-report.Rmd")
-```
+1. Install a colour package like [wesanderson](https://github.com/karthik/wesanderson) or [popthemes](https://github.com/johnmackintosh/popthemes)
 
+1. Add a new parameter called `pallete` 
 
-Now try changing the parameters:
+1. This will require `choices: [choice1, choice2, choice3]` in the params
 
+1. Add code to the ggplot2 to change the output colours: +
+  `scale_colour_manual(values = wes_palette(params$palette))` or
+  `scale_colour_manual(values = pop_palette(params$palette))`
 
-```r
-render("01-bakeoff-report.Rmd",
-       params = list(series = "9"))
-```
+use the parameter in our ggplot2 code.
 
-__If this was easy__, play with the other parameters too. Or see if you can change the output format, and add output option `toc = TRUE`.
+_psst...`01-bakeoff-report-alison.Rmd` is there..._
 
-_psst...answers on the next slide..._
-
-
-<div class="countdown" id="timer_621d17e7" style="right:0;bottom:0;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-
-???
-The rendered document doesn't appear in a pop up and you will have to click on the newly created `01-bakeoff-report.html` which corresponds to the `.rmd` file. 
-
-A hint for finding the paramters to a function is to select F1 when the cursor is in the word `render`. 
-
-The help files will appear in the bottom right panel of RStudio.
+_psst-psst...answer on the next slide..._
 
 ---
 class: your-turn
 
-# Example answer
+# Answer
 
-
-```r
-render("01-bakeoff-report.Rmd",
-       params = list(series = "9"), 
-       output_format = distill::distill_article(toc = TRUE))
+```yaml
+  palette: 
+    label: "Wes Anderson palette:"
+    value: GrandBudapest1
+    input: select
+    choices: [GrandBudapest1, Darjeeling1, Darjeeling2, FantasticFox1, Royal2]
 ```
 
----
-class: middle, center
+or if you used popthemes:
 
-# Take-aways
-
---
-
-✔️ **Documents run sequentially** the order of your code chunks matters
-
---
-
-✔️ **Click or code** the flexibility of RMarkdown is that you can use RStudio or code in the console
-
---
-
-✔️ **RMarkdowns are self-contained** any data use needs to be coded in the script and not "pre-loaded" in RStudio
-
-
-
-
-
-
+```yaml
+  palette: 
+    label: "Pop palette:"
+    value: aqua
+    input: select
+    choices: [aqua, bangles, beck, boo, bwitched]
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

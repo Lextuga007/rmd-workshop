@@ -4,7 +4,7 @@
     <title>Code Chunks</title>
     <meta charset="utf-8" />
     <meta name="author" content="Zoë Turner" />
-    <meta name="date" content="2022-02-28" />
+    <meta name="date" content="2022-03-07" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/clipboard/clipboard.min.js"></script>
@@ -667,47 +667,25 @@ Customize this report.
 
 1. Use the RStudio outline pane; rejoice!
 
-1. Build a [graphical user interface](https://bookdown.org/yihui/rmarkdown/params-knit.html#the-interactive-user-interface) for parameters. 
 
-__If this was easy,__ try adding a parameter for color palette and add in a package like [wesanderson](https://github.com/karthik/wesanderson) &amp;mdash; use the parameter in our ggplot2 code.
-
-_psst...`01-bakeoff-report-alison.Rmd` is there..._
-
-_psst-psst...answers on the next slide..._
-
-<div class="countdown" id="timer_621cb4bb" style="right:0;bottom:0;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<div class="countdown" id="timer_622615bf" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
 ---
 class: your-turn
 
-# Answers
+# Answer
 
 ````
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       warning = FALSE,
                       message = FALSE,
-                      fig.path = "alison-figs/")
+                      fig.path = "figs/")
 ```
 ````
 
-```yaml
-params:
-  series:
-    label: "Series:"
-    value: 1
-    input: numeric
-    min: 1
-    max: 9
-    step: 1
-  palette: 
-    label: "Wes Anderson palette:"
-    value: GrandBudapest1
-    input: select
-    choices: [GrandBudapest1, Darjeeling1, Darjeeling2, FantasticFox1, Royal2]
-```
 ---
 class: inverse, center, middle
 
@@ -735,7 +713,7 @@ class: your-turn
 1. 🧶 **Knit** button - What do you see? How is this different to the original chunk?
 
 
-<div class="countdown" id="timer_621cb5f6" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_622616a1" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -758,7 +736,7 @@ Following the slide previously and 🧶 **Knit** button after each step:
 1. Finally, add the following `{fig.cap = "Duplicate chart!}`
 
 
-<div class="countdown" id="timer_621cb483" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_622615e9" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -770,7 +748,7 @@ class: middle, center
 
 # Time for lunch!
 
-<div class="countdown blink-colon noupdate-60" id="timer_621cb653" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown blink-colon noupdate-60" id="timer_622615f3" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">60</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 

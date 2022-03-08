@@ -290,15 +290,3 @@ The link to the [course material](https://philosopher-analyst.netlify.app/rmd-wo
 
 The link to the course material https://philosopher-analyst.netlify.app/rmd-workshop/
 ]
-
----
-
-class: middle, center
-
-# `r emo::ji("stopwatch")`
-
-# Time for a break!
-
-```{r echo = FALSE}
-countdown(minutes = 5, update_every = 60)
-```

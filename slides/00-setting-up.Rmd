@@ -63,21 +63,22 @@ class: title-slide, center, middle
 class: middle, center
 
 # Agenda
-RMarkdown <br/>
-<br/> Getting set up <br/>
-<br/> --------- Break --------- <br/>
-<br/> What's inside?  <br/>
-<br/> Text <br/>
-<br/> Images <br/>
-<br/> --------- Break --------- <br/>
-<br/> Code chunks <br/>
-<br/> --------- Lunch ----------- <br/>
-<br/>  <br/>
-<br/>  <br/>
-<br/> --------- Break --------- <br/>
-<br/>  <br/>
-<br/>  <br/>
-<br/> .green[Finish about 4 - 430pm] <br/>
+RMarkdown  
+Getting set up ; What's inside?  
+
+--------- 10 minutes Break --------- 
+
+Text ; Images ; Code chunks  
+
+--------- 1 hour Lunch -----------
+
+Inline code ; Tabs ; Output Formats
+
+--------- Break ---------
+
+Command Line ; Parameters ; Loop reports
+
+.green[Finish about 4 - 430pm]
 ---
 layout: true
 
@@ -202,7 +203,8 @@ knitr::include_graphics("images/cloud-from-https.png")
 
 ```{r eval=FALSE}
 install.packages(c("tidyverse", "rmarkdown", "here", 
-                   "glue", "usethis", "distill", "bookdown"))
+                   "glue", "usethis", "distill", "bookdown",
+                   "remotes"))
 ```
 
 ]

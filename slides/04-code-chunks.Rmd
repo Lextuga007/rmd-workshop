@@ -650,47 +650,25 @@ Customize this report.
 
 1. Use the RStudio outline pane; rejoice!
 
-1. Build a [graphical user interface](https://bookdown.org/yihui/rmarkdown/params-knit.html#the-interactive-user-interface) for parameters. 
-
-__If this was easy,__ try adding a parameter for color palette and add in a package like [wesanderson](https://github.com/karthik/wesanderson) &mdash; use the parameter in our ggplot2 code.
-
-_psst...`01-bakeoff-report-alison.Rmd` is there..._
-
-_psst-psst...answers on the next slide..._
 
 ```{r echo = FALSE}
-countdown(minutes = 5)
+countdown(minutes = 3)
 ```
 
 ---
 class: your-turn
 
-# Answers
+# Answer
 
 ````
 ```{r setup, include=FALSE}`r ''`
 knitr::opts_chunk$set(echo = FALSE, 
                       warning = FALSE,
                       message = FALSE,
-                      fig.path = "alison-figs/")
+                      fig.path = "figs/")
 ```
 ````
 
-```yaml
-params:
-  series:
-    label: "Series:"
-    value: 1
-    input: numeric
-    min: 1
-    max: 9
-    step: 1
-  palette: 
-    label: "Wes Anderson palette:"
-    value: GrandBudapest1
-    input: select
-    choices: [GrandBudapest1, Darjeeling1, Darjeeling2, FantasticFox1, Royal2]
-```
 ---
 class: inverse, center, middle
 

@@ -1,5 +1,5 @@
 ---
-title: "What is inside in more detail?"
+title: "What is inside RMarkdown in more detail?"
 session: "01"
 subtitle: "Adapted from slides by Alison Hill (RStudio)"
 author: Zoë Turner
@@ -297,6 +297,5 @@ class: middle, center
 # Time for a break!
 
 ```{r echo = FALSE}
-countdown(minutes = 5, update_every = 60)
+countdown(minutes = 10, update_every = 60)
 ```
-

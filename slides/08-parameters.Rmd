@@ -21,6 +21,7 @@ params:
   site_link: "https://philosopher-analyst.netlify.app/rmd-workshop/"
   cloud_link: "https://rstudio.cloud/"
   github_link: "https://github.com/Lextuga007/rm_01_basics"
+  series: 1
 ---
 
 ```{r setup, include=FALSE}
@@ -53,7 +54,6 @@ class: title-slide, center, middle
 # `r rmarkdown::metadata$title`
 
 ---
-
 class: inverse, center, middle
 
 # <center>Parameters in RStudio</center>
@@ -64,7 +64,6 @@ class: inverse, center, middle
 </span> 
 
 ---
-
 # <center>Knit with Parameters</center>
 
 ```{r echo=FALSE, fig.alt="Screenshot of the knit dropdown menu", out.width="25%", fig.align='center'}
@@ -85,9 +84,23 @@ This uses {shiny} and may be prompted to install for use
 
 ### in inline code
 
-Report relates to Series ``` `r knitr::inline_expr('params$series')` ```.
+.pull-left[
+Report relates to Series ``` `r knitr::inline_expr('params$series')` ```
+
+]
+
+--
+
+.pull-right[
+![Screenshot of the rendered html where code is now shown as text "Series 1"](images/inline-parameter.PNG)
+]
+
+
+---
 
 ### in R code
+
+.pull-left[
 
 ```{r eval=FALSE}
 
@@ -95,33 +108,47 @@ series_ratings <- ratings %>%
   filter(series == params$series) #<<
 
 ```
+]
 
--
----
-class: inverse, center, middle
+--
 
-# <center>Command line</center>
+.pull-right[
 
-<span class="fa-stack fa-4x">
-  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
-  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
-</span> 
-
----
-class: middle, center
-
-# Rendering
-
-.pull-left[
-
-So far: `r emo::ji("yarn")`
+```{r}
+ratings %>% 
+  filter(series == params$series) %>% 
+  head(5)
+```
 
 ]
 
-.pull-right[
-```{r eval=FALSE}
-render("01-bakeoff-report.Rmd")
+---
+
+# <center>Shiny Controls</center>
+
+.pull-left[
+```yaml
+title: "The Great British Bake Off"
+output: html_document
+params:
+  series: 
+    label: "Series numbers"
+    value: 1
+    input: slider
+    min: 1
+    max: 9
+    step: 1
 ```
+]
+
+.pull-right[
+
+* label: text
+* value: starting point
+* input: type of wizard
+* min: minimum that you set
+* max: maximum that you set
+* step: increments (default gives smaller points that don't match data)
 
 ]
 
@@ -130,67 +157,45 @@ class: your-turn
 
 # Your turn
 
-Instead of using the "Knit" button, try running this code in your R console:
+`r emo::ji("yarn")` **Knit** button and `Knit with Parameters...` after each step:
 
-```{r eval = FALSE}
-library(rmarkdown) # needs to be loaded first
-render("01-bakeoff-report.Rmd")
-```
+1. Change the `input` parameter from slider to numeric.
 
+1. Install a colour package like [wesanderson](https://github.com/karthik/wesanderson) or [popthemes](https://github.com/johnmackintosh/popthemes)
 
-Now try changing the parameters:
+1. Add a new parameter called `pallete` 
 
-```{r eval = FALSE}
-render("01-bakeoff-report.Rmd",
-       params = list(series = "9"))
-```
+1. This will require `choices: [choice1, choice2, choice3]` in the params
 
-__If this was easy__, play with the other parameters too. Or see if you can change the output format, and add output option `toc = TRUE`.
+1. Add code to the ggplot2 to change the output colours: +
+  `scale_colour_manual(values = wes_palette(params$palette))` or
+  `scale_colour_manual(values = pop_palette(params$palette))`
 
-_psst...answers on the next slide..._
+use the parameter in our ggplot2 code.
 
+_psst...`01-bakeoff-report-alison.Rmd` is there..._
 
-```{r echo = FALSE}
-countdown(minutes = 5)
-```
-
-???
-The rendered document doesn't appear in a pop up and you will have to click on the newly created `01-bakeoff-report.html` which corresponds to the `.rmd` file. 
-
-A hint for finding the paramters to a function is to select F1 when the cursor is in the word `render`. 
-
-The help files will appear in the bottom right panel of RStudio.
+_psst-psst...answer on the next slide..._
 
 ---
 class: your-turn
 
-# Example answer
+# Answer
 
-```{r eval=FALSE}
-render("01-bakeoff-report.Rmd",
-       params = list(series = "9"), 
-       output_format = distill::distill_article(toc = TRUE))
+```yaml
+  palette: 
+    label: "Wes Anderson palette:"
+    value: GrandBudapest1
+    input: select
+    choices: [GrandBudapest1, Darjeeling1, Darjeeling2, FantasticFox1, Royal2]
 ```
 
----
-class: middle, center
+or if you used popthemes:
 
-# Take-aways
-
---
-
-`r emo::ji("heavy_check_mark")` **Documents run sequentially** the order of your code chunks matters
-
---
-
-`r emo::ji("heavy_check_mark")` **Click or code** the flexibility of RMarkdown is that you can use RStudio or code in the console
-
---
-
-`r emo::ji("heavy_check_mark")` **RMarkdowns are self-contained** any data use needs to be coded in the script and not "pre-loaded" in RStudio
-
-
-
-
-
-
+```yaml
+  palette: 
+    label: "Pop palette:"
+    value: aqua
+    input: select
+    choices: [aqua, bangles, beck, boo, bwitched]
+```
