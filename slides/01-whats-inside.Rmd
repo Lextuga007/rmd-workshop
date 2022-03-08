@@ -54,6 +54,12 @@ class: title-slide, center, middle
 
 ---
 
+```{r child="how-rmd-works.Rmd"}
+
+```
+
+---
+
 class: top
 
 .left-column[
@@ -64,10 +70,9 @@ class: top
 
 ]
 
-
 .right-column[
 
-# How *does* R Markdown work?
+# How *does* R Markdown work - answers?
 
 1. `r emo::ji("shrug")` (`r emo::ji("heavy_check_mark")`)
 
@@ -76,29 +81,6 @@ class: top
 1. `knitr` executes the code and converts `.Rmd` to `.md`; **Pandoc** renders the `.md` file to the output format you want. (`r emo::ji("heavy_check_mark")`)
 
 ]
-
----
-
-class: middle, center
-
-```{r echo = FALSE, out.width="25%", fig.align="center"}
-knitr::include_graphics("https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png")
-```
-
-
-> "In a nutshell, R Markdown stands on the shoulders of `knitr` and **Pandoc**.
-
---
-
-> The former executes the computer code embedded in Markdown, and converts R Markdown to Markdown.
-
---
-
-> The latter renders Markdown to the output format you want (such as PDF, HTML, Word, Slides, website and so on)."
-
---
-
-> &mdash; [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 
 ---
 
@@ -129,7 +111,7 @@ key: value
 
 .pull-right[
 
-```{r echo=FALSE, out.width="75%", fig.align='center'}
+```{r echo=FALSE, out.width="75%", fig.align='center', fig.alt="Drawing of the back of a conductor"}
 knitr::include_graphics("images/orchestra.jpg")
 ```
 
@@ -138,7 +120,7 @@ knitr::include_graphics("images/orchestra.jpg")
 ???
 
 Using the {ymlthis} this section renders the "look" of the YAML with the three 
-dashes then key: value which is the format used in YAML. 
+dashes then `key: value` which is the format used in YAML. 
 
 ---
 class: middle, center
@@ -151,12 +133,21 @@ class: middle, center
 
 .pull-left[
 
+Basic YAML
+
 ```{r echo = FALSE}
 yml_empty() %>% 
   yml_title("The Great British Bake Off") %>% 
   yml_output(html_document()) %>% 
   asis_yaml_output()
 ```
+
+]
+
+--
+.pull-right[
+
+Add html related options
 
 ```{r echo = FALSE}
 yml_empty() %>% 
@@ -165,14 +156,6 @@ yml_empty() %>%
   asis_yaml_output()
 ```
 
-
-]
-
-.pull-right[
-
-```{r echo=FALSE, out.width="75%", fig.align='center'}
-knitr::include_graphics("images/orchestra.jpg")
-```
 
 ]
 
@@ -191,7 +174,8 @@ Use `?html_document` from your R console to find the code to:
 
 `r emo::ji("yarn")` **Knit** to HTML to see the output.
 
-**If this was easy**, try to embed the `Rmd` source code to download.
+**If this was easy**, try to embed the `Rmd` source code to download (appears as
+a button in top right hand of report).
 
 _psst...answers on the next slide..._
 
@@ -216,7 +200,18 @@ yml_empty() %>%
 
 ---
 
-# Parameters
+class: inverse, center, middle
+
+# <center>Parameters</center>
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+
+---
+
+# <center>Parameters</center>
 
 ```{r echo = FALSE}
 yml_empty() %>% 
@@ -299,3 +294,8 @@ class: middle, center
 ```{r echo = FALSE}
 countdown(minutes = 10, update_every = 60)
 ```
+
+---
+class: inverse
+
+# <center>Next section...</center>

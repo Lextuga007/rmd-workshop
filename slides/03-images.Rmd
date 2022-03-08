@@ -66,8 +66,6 @@ class: inverse, center, middle
 
 # <center>Images - markdown</center>
 
---
-
 .pull-left[
 ```markdown
 Competitive baking, such as making Victoria 
@@ -96,8 +94,6 @@ too which can be useful if you need to resize the pictures.
 ---
 
 # <center>Images - html</center>
-
---
 
 .pull-left[
 ```markdown
@@ -205,6 +201,8 @@ class: live-code
 
 # Markdown pathways to images
 
+Open file `03-bakeoff-images.Rmd` from the folder `03-images/`
+
 Together we will use markdown to link to an image:
 
 1. In the same folder
@@ -213,10 +211,22 @@ Together we will use markdown to link to an image:
 
 1. In a subfolder from the main root
 
-Open file `03-images/03-bakeoff-images.Rmd`
-
 _psst... we will be testing out the code from the previous slide!..._
 
+???
+
+Same folder
+![](bakers_1.png)
+Sub folder
+![](img/bakers_2.png)
+Folder from subfolder from the main root
+![](../images/bakers_3.png)
+
+Note that autofills. To force a prompt to autofill use `tab`
+
+Also if Global Options/RMarkdown/Show output inline for all R Markdown... is ticked
+the picture will automatically appear in the script. To remove untick but also 
+requires a restart `Ctrl + Shift + F10`
 ---
 class: inverse, center, middle
 
@@ -231,10 +241,8 @@ class: inverse, center, middle
 
 # <center>Alt Text</center>
 
---
-
 .pull-left[
-When images break, they still make sense ->
+When images break, they still make sense
 ]
 
 --
@@ -269,7 +277,7 @@ Within the <> and space between sections
 
 ```markdown
 <div id="bg">
-  <img src="http://bit.ly/blue-ribbon-sponge" alt="picture of a sponge cake from a village competition">
+  <img src="http://bit.ly/blue-ribbon-sponge" alt="Alt text: picture of a sponge cake from a village competition">
 </div> 
 ```
 
@@ -311,6 +319,9 @@ class: inverse, center, middle
 knitr::include_graphics("bakers_1.png")
 ```
 ````
+
+-- 
+
 ]
 
 .pull-right[
@@ -334,6 +345,8 @@ knitr::include_graphics("bakers_1.png")
 ```
 ````
 ]
+
+--
 
 .pull-right[
 
@@ -380,8 +393,6 @@ class: inverse, center, middle
 
 # <center>Links - markdown</center>
 
---
-
 .pull-left[
 ```markdown
 Competitive baking, such as making Victoria 
@@ -411,8 +422,6 @@ which inspired the series.
 ---
 
 # <center>Links - html</center>
-
---
 
 .pull-left[
 ```markdown
@@ -448,8 +457,6 @@ class: middle
 
 # Quiz
 
---
-
 .pull-left[
 
 How do you add headers in Markdown?
@@ -480,3 +487,12 @@ What about lists? Bulleted? Numbered?
 
 ]
 
+???
+
+Answer: Headers is `#` hash
+Lists are `-` for bullets and `1.` for numbered
+
+---
+class: inverse
+
+# <center>Next section...</center>

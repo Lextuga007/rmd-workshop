@@ -66,8 +66,6 @@ class: inverse, center, middle
 
 # <center>Dealing with long reports</center>
 
---
-
 .pull-left[
 
 ```markdown
@@ -84,7 +82,7 @@ class: inverse, center, middle
 --
 
 .pull-right[
-
+/
 ![Screenshot of the tabsets with the headers as above](images/tabset.PNG)
 
 ]
@@ -101,19 +99,19 @@ class: your-turn
 # Your turn
 
 Looking at `01-bakeoff-report.Rmd` together. 
-Look at the source, then `r emo::ji("yarn")` **Knit**.
+Look at the source, then `r emo::ji("yarn")` **Knit** after each step.
 
-1. Add a header `# Series Analysis`, then `r emo::ji("yarn")` **Knit**.
+1. Add a header `# Series Analysis`.
 
-1. Change `# Overview` to `### Overview {.tabset}`, then `r emo::ji("yarn")` **Knit**.
+1. Change `# Overview` to `### Overview {.tabset}`.
 
-1. Change `# Ratings` to `### Ratings`, then `r emo::ji("yarn")` **Knit**.
+1. Change `# Ratings` to `### Ratings`.
 
-1. Remove the space in the second header `###Ratings`, then `r emo::ji("yarn")` **Knit**. What happens?
+1. Remove the space in the second header `###Ratings`. What happens?
 
 
 ```{r echo = FALSE}
-countdown(minutes = 5)
+countdown(minutes = 3)
 ```
 
 ---
@@ -166,7 +164,9 @@ class: live-code
 
 # Dynamic tabs
 
-1. Add a new header `## Days {.tabset .tabset-pill}`
+Together: 
+
+1. We'll add a new header `## Days {.tabset .tabset-pill}`
 
 1. <kbd>Ctrl + Alt + i</kbd> for a new R chunk.
 
@@ -175,27 +175,41 @@ class: live-code
 1. Create a list of days 
 
 ```markdown 
-viewers %>% select(days) %>% unique() %>% pull()
+viewers <- viewers %>% select(days) %>% unique() %>% pull()
 ```
 
-1. Copy loop code and add the code where it says <copy the chart code here>:
+5. Copy loop code:
 
 ```markdown
 for(i in days){ 
-  
   cat("###", i, '<br>', '\n')
-  
   data <- viewers %>% 
     filter(days == i) 
   
-  chart <- <copy the chart code here>
-  
+  chart <- ggplot(data, aes(episode, 
+                    viewers, 
+                    colour = days, 
+                    group = days)) + 
+  geom_point() + 
+  geom_line() + 
+  labs(
+    x = "Episode", 
+    y = "Viewers (millions)"
+  ) +
+  expand_limits(y = 0) 
   print(chart)
-  
   cat('\n', '<br>', '\n\n')
-  
 }
 ```
 
 ???
 As with so much in R most things can be automated. If you were to require many tabs to be created for teams/wards/hospitals then automating this using a loop can be useful. First example shared in the [NHS-R Community demos and how tos](https://github.com/nhs-r-community/demos-and-how-tos/blob/main/rmarkdown/loop_tabs/loop_tabs.Rmd)
+
+*`results='asis'`*
+
+On 'asis' Note the use of the` results='asis'` chunk option. This is required to ensure that the raw table output isn’t processed further by knitr. The kable function includes several options to control the maximum number of digits for numeric columns, alignment, etc (refer to the knitr package documentation for additional details) - results slide https://lextuga007.github.io/rmd-workshop/slides/04-code-chunks.html#21
+
+---
+class: inverse
+
+# <center>Next section...</center>

@@ -63,13 +63,39 @@ class: inverse, center, middle
   <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
 </span> 
 
---
-
 # <i class="fab fa-r-project"></i> code
 
 ---
 
-# Code chunks
+class: live-code
+
+# Adding/running chunks
+
+Together we open RMarkdown script `01-bakeoff-report.Rmd`:
+
+1. Add chunks with button or:
+
+   Ctrl + Alt + `i` (Windows/Linux)
+   
+   Command (or Cmd) `⌘` + Option (or Alt) `⌥` +  `i` (Mac)
+   
+1. Run chunks by:
+
+   Run current chunk button (green triangle at top of chunk)
+   
+   Knit button / run all chunks (grey arrow down and green bar)
+   
+   Short menu at top of Editor
+
+???
+
+Shortcut key to run a chunk `Ctrl + Shift + Enter`
+
+Shortcuts for chunks can be amended or added in `Tools/Modify Keyboard Shortcuts...`
+
+---
+
+# <center>Default Code chunk</center>
 
 .pull-left[
 
@@ -106,7 +132,7 @@ Copy and paste into the `01-bakeoff-report.Rmd` and knit to see it in the report
 
 ---
 
-# Code chunks
+# <center>Object creating Code chunk</center>
 
 .pull-left[
 
@@ -140,7 +166,7 @@ is the main aim of RMarkdown.
 
 ---
 
-# Code chunks
+# <center>Showing object Code chunk</center>
 
 .pull-left[
 
@@ -178,7 +204,7 @@ Yes, but with the data column types again.
 
 ---
 
-# Code chunks
+# <center>Extended Code chunk</center>
 
 .pull-left[
 
@@ -229,31 +255,6 @@ ggplot(viewers, aes(episode, viewers,
 ]
 
 ---
-class: live-code
-
-# Adding/running chunks
-
-Together we:
-
-1. Add chunks with button or:
-
-   Ctrl + Alt + `i` (Windows/Linux)
-   
-   Command (or Cmd) `⌘` + Option (or Alt) `⌥` +  `i` (Mac)
-   
-1. Run chunks by:
-
-   Run current chunk button (interactive)
-   
-   Knit button / run all chunks
-
-???
-
-Shortcut key to run a chunk Ctrl + Shift + Enter
-
-Shortcuts for chunks can be amended or added in Tools/Modify Keyboard Shortcuts...
-
----
 
 class: inverse, center, middle
 
@@ -269,8 +270,6 @@ class: inverse, center, middle
 class: middle, center
 
 # <center>Navigating in RStudio</center>
-
---
 
 ```{r echo=FALSE}
 knitr::include_graphics("images/rmd-nav.png")
@@ -296,7 +295,7 @@ class: inverse, center, middle
 
 ---
 
-# No Chunk options
+# <center>No Chunk options</center>
 
 .pull-left[
 
@@ -307,6 +306,8 @@ glimpse(ratings)
 ````
 
 ]
+
+--
 
 .pull-right[
 
@@ -321,7 +322,7 @@ Just a plain r means that R code runs. Chunks can also be SQL - requires SQL con
 
 ---
 
-# echo
+# <center>echo</center>
 
 .pull-left[
 
@@ -333,6 +334,7 @@ glimpse(ratings)
 
 ]
 
+--
 .pull-right[
 
 ```{r echo=FALSE}
@@ -346,7 +348,7 @@ Echo (showing code) is default to TRUE. Setting to FALSE just returns the result
 
 ---
 
-# eval
+# <center>eval</center>
 
 .pull-left[
 
@@ -358,6 +360,7 @@ glimpse(ratings)
 
 ]
 
+--
 .pull-right[
 
 ```{r eval=FALSE}
@@ -373,7 +376,7 @@ running if set to TRUE (which is default).
 
 ---
 
-# include
+# <center>include</center>
 
 .pull-left[
 
@@ -385,6 +388,7 @@ glimpse(ratings)
 
 ]
 
+--
 .pull-right[
 
 ```{r include=FALSE}
@@ -402,7 +406,7 @@ R Markdown still runs the code in the chunk, and the results can be used by othe
 
 ---
 
-# results
+# <center>results</center>
 
 .pull-left[
 
@@ -414,6 +418,7 @@ glimpse(ratings)
 
 ]
 
+--
 .pull-right[
 
 ```{r echo=TRUE, results='hide'}
@@ -440,9 +445,7 @@ columns, alignment, etc (refer to the knitr package documentation for additional
 details)
 ---
 
-# message / warning
-
-
+# <center>message / warning</center>
 
 ![](https://www.tidyverse.org/images/tidyverse_1.2.0/tidyverse_1-2-0_pkg_load.gif)
 
@@ -453,7 +456,7 @@ to not print that message when a chunk was run?
 
 ---
 
-# message / warning
+# <center>message / warning</center>
 
 .pull-left[
 
@@ -465,6 +468,8 @@ library(tidyverse)
 
 ]
 
+--
+
 .pull-right[
 
 ```{r message=FALSE, warning=FALSE}
@@ -475,7 +480,7 @@ library(tidyverse)
 
 ---
 
-# Chunk option take-aways
+# <center>Chunk option take-aways</center>
 
 + Place between curly braces<br>`{r option=value}`
 
@@ -491,7 +496,7 @@ through the NHS-R Community, [link here](https://philosopher-analyst.netlify.app
 ---
 class: inverse, center, middle
 
-# Chunk labels
+# <center>Repeated Chunk labels</center>
 
 <span class="fa-stack fa-4x">
   <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
@@ -500,7 +505,7 @@ class: inverse, center, middle
 
 ---
 
-# Chunk labels
+# <center>Reapeated Chunk labels</center>
 
 .pull-left[
 
@@ -512,11 +517,8 @@ glimpse(ratings)
 
 ]
 
+--
 .pull-right[
-
-+ Place between curly braces<br>`{r label}`
-
-+ Separated options with commas<br>`{r label, option1=value}`
 
 + Careful! No duplicate chunk labels
 
@@ -538,7 +540,7 @@ glimpse(ratings)
 ???
 
 Live code example with the peek chunk, knit then repeat the chunk either by copying
-or using Ctrl + Alt + i for a new chunk and then typing head(ratings)
+or using `Ctrl + Alt + i` for a new chunk and then typing `head(ratings)`
 
 ---
 
@@ -587,7 +589,7 @@ class: inverse, center, middle
 
 ---
 
-# Setup chunk
+# <center>Setup chunk - or global settings</center>
 
 .pull-left[
 
@@ -681,7 +683,7 @@ class: inverse, center, middle
 
 ---
 
-class: your-turn
+class: live-code
 
 # Reusing chunk code
 
@@ -694,11 +696,6 @@ class: your-turn
 1. Type `{r, ref.label="viewers-by-days", echo=TRUE, eval=FALSE}` in the new chunk header 
 
 1. `r emo::ji("yarn")` **Knit** button - What do you see? How is this different to the original chunk?
-
-
-```{r echo = FALSE}
-countdown(minutes = 5)
-```
 
 ---
 
@@ -732,6 +729,10 @@ class: middle, center
 # Time for lunch!
 
 ```{r echo = FALSE}
-countdown(minutes = 60, update_every = 60)
+countdown(minutes = 60)
 ```
 
+---
+class: inverse
+
+# <center>Next section...</center>

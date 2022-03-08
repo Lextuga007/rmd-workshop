@@ -4,7 +4,7 @@
     <title>What is inside RMarkdown in more detail?</title>
     <meta charset="utf-8" />
     <meta name="author" content="Zoë Turner" />
-    <meta name="date" content="2022-03-07" />
+    <meta name="date" content="2022-03-08" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/clipboard/clipboard.min.js"></script>
@@ -40,6 +40,31 @@ class: title-slide, center, middle
 
 ---
 
+
+
+
+
+.left-column[
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #f2e255;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color: #fff;"&gt;?&lt;/strong&gt;
+&lt;/span&gt; 
+]
+
+.right-column[
+
+# How does R Markdown work - what do you think?
+
+1. 🤷
+
+1. I press knit, a document appears, and I believe that anything happening in between could be actual magic.
+
+1. `knitr` executes the code and converts `.Rmd` to `.md`; **Pandoc** renders the `.md` file to the output format you want.
+
+]
+
+---
+
 class: top
 
 .left-column[
@@ -50,10 +75,9 @@ class: top
 
 ]
 
-
 .right-column[
 
-# How *does* R Markdown work?
+# How *does* R Markdown work - answers?
 
 1. 🤷 (✔️)
 
@@ -62,27 +86,6 @@ class: top
 1. `knitr` executes the code and converts `.Rmd` to `.md`; **Pandoc** renders the `.md` file to the output format you want. (✔️)
 
 ]
-
----
-
-class: middle, center
-
-&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png" width="25%" style="display: block; margin: auto;" /&gt;
-
-
-&gt; "In a nutshell, R Markdown stands on the shoulders of `knitr` and **Pandoc**.
-
---
-
-&gt; The former executes the computer code embedded in Markdown, and converts R Markdown to Markdown.
-
---
-
-&gt; The latter renders Markdown to the output format you want (such as PDF, HTML, Word, Slides, website and so on)."
-
---
-
-&gt; &amp;mdash; [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 
 ---
 
@@ -113,14 +116,14 @@ key: value
 
 .pull-right[
 
-&lt;img src="images/orchestra.jpg" width="75%" style="display: block; margin: auto;" /&gt;
+&lt;img src="images/orchestra.jpg" title="Drawing of the back of a conductor" alt="Drawing of the back of a conductor" width="75%" style="display: block; margin: auto;" /&gt;
 
 ]
 
 ???
 
 Using the {ymlthis} this section renders the "look" of the YAML with the three 
-dashes then key: value which is the format used in YAML. 
+dashes then `key: value` which is the format used in YAML. 
 
 ---
 class: middle, center
@@ -133,12 +136,21 @@ class: middle, center
 
 .pull-left[
 
+Basic YAML
+
 ```yaml
 ---
 title: The Great British Bake Off
 output: html_document
 ---
 ```
+
+]
+
+--
+.pull-right[
+
+Add html related options
 
 ```yaml
 ---
@@ -149,12 +161,6 @@ output:
 ---
 ```
 
-
-]
-
-.pull-right[
-
-&lt;img src="images/orchestra.jpg" width="75%" style="display: block; margin: auto;" /&gt;
 
 ]
 
@@ -173,11 +179,12 @@ Use `?html_document` from your R console to find the code to:
 
 🧶 **Knit** to HTML to see the output.
 
-**If this was easy**, try to embed the `Rmd` source code to download.
+**If this was easy**, try to embed the `Rmd` source code to download (appears as
+a button in top right hand of report).
 
 _psst...answers on the next slide..._
 
-<div class="countdown" id="timer_62261554" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_622780c2" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -200,7 +207,18 @@ output:
 
 ---
 
-# Parameters
+class: inverse, center, middle
+
+# &lt;center&gt;Parameters&lt;/center&gt;
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;2 &lt;/strong&gt;
+&lt;/span&gt; 
+
+---
+
+# &lt;center&gt;Parameters&lt;/center&gt;
 
 ```yaml
 ---
@@ -271,7 +289,7 @@ params:
 Now click on knit button and pick __"Knit with Parameters."__ How is this different from what you did above?
 
 
-<div class="countdown" id="timer_62261602" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_6227802b" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -283,9 +301,14 @@ class: middle, center
 
 # Time for a break!
 
-<div class="countdown blink-colon noupdate-60" id="timer_6226178f" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown blink-colon noupdate-60" id="timer_62277ff9" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
+
+---
+class: inverse
+
+# &lt;center&gt;Next section...&lt;/center&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

@@ -4,7 +4,7 @@
     <title>Command line</title>
     <meta charset="utf-8" />
     <meta name="author" content="Zoë Turner" />
-    <meta name="date" content="2022-03-07" />
+    <meta name="date" content="2022-03-08" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/clipboard/clipboard.min.js"></script>
@@ -55,11 +55,12 @@ class: middle, center
 
 .pull-left[
 
-So far we've used the RStudio button to 🧶
-
-]
+So far we've used the RStudio button to 🧶  
 
 What about on the command line?
+]
+
+
 
 --
 
@@ -82,6 +83,10 @@ Instead of using the "Knit" button, try running this code in your R console:
 ```r
 library(rmarkdown) # needs to be loaded first
 render("01-bakeoff-report.Rmd")
+
+# or
+
+rmarkdown::render("01-bakeoff-report.Rmd")
 ```
 
 --
@@ -99,7 +104,7 @@ __If this was easy__, play with the other parameters too. Or see if you can chan
 _psst...answers on the next slide..._
 
 
-<div class="countdown" id="timer_62261840" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_62277ffc" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -119,7 +124,7 @@ class: your-turn
 ```r
 render("01-bakeoff-report.Rmd",
        params = list(series = "9"), 
-       output_format = distill::distill_article(toc = TRUE))
+       output_format = "word_document")
 ```
 
 ---
@@ -137,11 +142,16 @@ class: middle, center
 
 --
 
-✔️ **RMarkdowns are self-contained** any data use needs to be coded in the script and not "pre-loaded" in RStudio
+❗ **RMarkdowns are self-contained** any data use needs to be coded in the script and not "pre-loaded" in RStudio
 
 --
 
-❗ **Manual parameters overwrite the output** each output needs to be saved individually
+❗ **Manual parameters overwrite the output** each output needs to be saved individually - this can be laborious
+
+---
+class: inverse
+
+# &lt;center&gt;Next section...&lt;/center&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

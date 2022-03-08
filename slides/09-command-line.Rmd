@@ -69,11 +69,12 @@ class: middle, center
 
 .pull-left[
 
-So far we've used the RStudio button to `r emo::ji("yarn")`
-
-]
+So far we've used the RStudio button to `r emo::ji("yarn")`  
 
 What about on the command line?
+]
+
+
 
 --
 
@@ -94,6 +95,10 @@ Instead of using the "Knit" button, try running this code in your R console:
 ```{r eval = FALSE}
 library(rmarkdown) # needs to be loaded first
 render("01-bakeoff-report.Rmd")
+
+# or
+
+rmarkdown::render("01-bakeoff-report.Rmd")
 ```
 
 --
@@ -129,7 +134,7 @@ class: your-turn
 ```{r eval=FALSE}
 render("01-bakeoff-report.Rmd",
        params = list(series = "9"), 
-       output_format = distill::distill_article(toc = TRUE))
+       output_format = "word_document")
 ```
 
 ---
@@ -147,8 +152,13 @@ class: middle, center
 
 --
 
-`r emo::ji("heavy_check_mark")` **RMarkdowns are self-contained** any data use needs to be coded in the script and not "pre-loaded" in RStudio
+`r emo::ji("exclamation")` **RMarkdowns are self-contained** any data use needs to be coded in the script and not "pre-loaded" in RStudio
 
 --
 
 `r emo::ji("exclamation")` **Manual parameters overwrite the output** each output needs to be saved individually - this can be laborious
+
+---
+class: inverse
+
+# <center>Next section...</center>

@@ -81,7 +81,7 @@ class: inverse, center, middle
 class: middle, center
 
 
-```{r echo=FALSE, out.width="40%", fig.link="https://rmarkdown.rstudio.com/docs/reference/index.html#section-output-formats"}
+```{r echo=FALSE, out.width="40%", fig.link="https://rmarkdown.rstudio.com/docs/reference/index.html#section-output-formats", fig.alt="Screenshot of the short drop down menu for Knit"}
 knitr::include_graphics("images/rmdbase-formats.png")
 ```
 
@@ -118,7 +118,7 @@ countdown(minutes = 2)
 
 ---
 
-# Temp check `r emo::ji("thermometer")`
+# <center>Temp check `r emo::ji("thermometer")`</center>
 
 Do you have new output formats in your YAML?
 
@@ -133,12 +133,9 @@ yml_empty() %>%
 
 ???
 
-This is a great way to "control" your knit button!
+Notice that when you knit, the respective code is updated in your YAML.
 
-Notice that when you knit, it respects those output options in your YAML.
-
-This way you "save" your output options
-
+Good for reproducibility.
 
 ---
 class: inverse, center, middle
@@ -152,13 +149,8 @@ class: inverse, center, middle
 
 ---
 
-# What is hard about YAML?
+# <center>What is hard about YAML?</center>
 
-.pull-left[
-![](https://media.giphy.com/media/Nt2cPxzpKhbCE/giphy.gif)
-]
-
-.pull-right[
 + Indentations matter
 
 + Rarely informative error messages
@@ -168,7 +160,10 @@ class: inverse, center, middle
 + Easy to forget the right `key`
 
 + Easy to forget the possible `values` for a given `key`
-]
+
+???
+
+New language, not the same as R. [Blog](https://www.apreshill.com/blog/2020-05-how-i-teach-r-markdown/) by Alison Hill for educators but useful for learners too to see the difficulties.
 
 ---
 class: inverse, center, middle
@@ -224,3 +219,8 @@ countdown(minutes = 2)
 
 ???
 Running this code in the cloud will prompt an installation of the {bookdown} package which is very quick to load
+
+---
+class: inverse
+
+# <center>Next section...</center>

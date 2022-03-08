@@ -67,7 +67,7 @@ class: inverse, center, middle
 # <center>Knit with Parameters</center>
 
 ```{r echo=FALSE, fig.alt="Screenshot of the knit dropdown menu", out.width="25%", fig.align='center'}
-knitr::include_graphics("images/knit-dropdown.PNG")
+knitr::include_graphics("images/knit-dropdown.png")
 ```
 
 
@@ -80,9 +80,7 @@ This uses {shiny} and may be prompted to install for use
 
 ---
 
-# <center>Parameters</center>
-
-### in inline code
+# <center>Inline Parameters</center>
 
 .pull-left[
 Report relates to Series ``` `r knitr::inline_expr('params$series')` ```
@@ -98,7 +96,10 @@ Report relates to Series ``` `r knitr::inline_expr('params$series')` ```
 
 ---
 
-### in R code
+# <center>R code Parameters</center>
+---
+
+# <center>R code Parameters</center>
 
 .pull-left[
 
@@ -124,6 +125,37 @@ ratings %>%
 
 ---
 
+# <center>In chunk settings</center>
+
+.pull-left[
+
+```yaml
+---
+params:
+  show_code: FALSE
+---
+```
+
+]
+--
+
+.pull-right[
+
+`knitr::opts_chunk$set(echo = params$show_code)`
+]
+
+---
+
+class: inverse, center, middle
+
+# <center>Shiny Controls</center>
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+
+---
 # <center>Shiny Controls</center>
 
 .pull-left[
@@ -152,20 +184,24 @@ params:
 
 ]
 
+???
+The params: YAML code uses {shiny} which needs to be installed.
+
+When searching for options related to types of `input` consider adding `shiny` 
+to the search.
+
 ---
 class: your-turn
 
 # Your turn
 
-`r emo::ji("yarn")` **Knit** button and `Knit with Parameters...` after each step:
+`r emo::ji("yarn")` **Knit** button and `Knit with Parameters...` after each step:=
 
-1. Change the `input` parameter from slider to numeric.
+1. Install and add library() call for either [wesanderson](https://github.com/karthik/wesanderson) or [popthemes](https://github.com/johnmackintosh/popthemes)
 
-1. Install a colour package like [wesanderson](https://github.com/karthik/wesanderson) or [popthemes](https://github.com/johnmackintosh/popthemes)
+1. Add a new parameter called `palette:` spaced like `series:`
 
-1. Add a new parameter called `pallete` 
-
-1. This will require `choices: [choice1, choice2, choice3]` in the params
+1. Add and replace `choices` with colour from the package `choices: [choice1, choice2, choice3]`
 
 1. Add code to the ggplot2 to change the output colours: +
   `scale_colour_manual(values = wes_palette(params$palette))` or
@@ -176,6 +212,11 @@ use the parameter in our ggplot2 code.
 _psst...`01-bakeoff-report-alison.Rmd` is there..._
 
 _psst-psst...answer on the next slide..._
+
+
+```{r echo = FALSE}
+countdown(minutes = 5)
+```
 
 ---
 class: your-turn
@@ -199,3 +240,7 @@ or if you used popthemes:
     input: select
     choices: [aqua, bangles, beck, boo, bwitched]
 ```
+---
+class: inverse
+
+# <center>Next section...</center>

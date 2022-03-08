@@ -185,8 +185,6 @@ class: middle, center
 
 # <center>Default to Visual Editor</center>
 
---
-
 ![Screenshot of Tools/Global Options/RMarkdown/Visual with option to make Editor view default](images/visual-editor-default.PNG)
 
 ---
@@ -204,8 +202,6 @@ class: inverse, center, middle
 class: top
 
 # <center>Lists</center>
-
---
 
 .pull-left[
 
@@ -290,3 +286,9 @@ The link to the [course material](https://philosopher-analyst.netlify.app/rmd-wo
 
 The link to the course material https://philosopher-analyst.netlify.app/rmd-workshop/
 ]
+
+---
+class: inverse
+
+# <center>Next section...</center>
+

@@ -64,6 +64,7 @@ class: middle, center
 
 # Agenda
 RMarkdown  
+
 Getting set up ; What's inside?  
 
 --------- 10 minutes Break --------- 
@@ -79,6 +80,7 @@ Inline code ; Tabs ; Output Formats
 Command Line ; Parameters ; Loop reports
 
 .green[Finish about 4 - 430pm]
+
 ---
 layout: true
 
@@ -101,7 +103,7 @@ layout: true
 
 .right-column[
 
-# What is R Markdown?
+# What is R Markdown - answers?
 
 1. ["An authoring framework for data science."](https://rmarkdown.rstudio.com/lesson-1.html) (`r emo::ji("heavy_check_mark")`)
 
@@ -115,9 +117,20 @@ layout: true
 
 1. ["A computational document."](http://radar.oreilly.com/2011/07/wolframs-computational-documen.html) (`r emo::ji("heavy_check_mark")`)
 
-1. Wizardry. (`r emo::ji("wizard")`)
+1. Wizardry. (well some might say it is! `r emo::ji("wizard")`)
 
 ]
+
+---
+
+class: inverse, center, middle
+
+# <center>Let's get started</center>
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
 
 ---
 
@@ -129,7 +142,7 @@ layout: true
 
 .right-column[
 
-# Go here:
+# GitHub:
 
 [`r params$github_link`](`r params$github_link`)
 
@@ -170,7 +183,7 @@ knitr::include_graphics("images/cloud-from-https.png")
 
 .right-column[
 
-# Go to rstudio.cloud:
+# rstudio.cloud:
 
 [`r params$cloud_link`](`r params$cloud_link`)
 
@@ -185,7 +198,7 @@ knitr::include_graphics("images/cloud-from-https.png")
   knitr::include_graphics("images/cloud-from-git.png")
   ```
 
-1. Name your project
+4. Name your project (default is `Untitled`)
 
 ]
 
@@ -210,9 +223,10 @@ install.packages(c("tidyverse", "rmarkdown", "here",
 ]
 
 ???
-When the rmds are opened RStudio will say along the top if there are any references
-to packages that haven't been installed but the next slide includes a package that 
-isn't in the code {usethis}
+When the rmds are opened RStudio will say along the top if there are any missing
+packages from the code. 
+
+But the next slide includes a package that isn't in the code {usethis}
 
 In the cloud takes about 1 minutes to load all the packages.
 
@@ -278,6 +292,11 @@ We look at the *source* anatomy for `01-bakeoff-report.Rmd` together:
 1. The **text** 
 
 1. The **code**
+
+--
+# Basic anatomy II
+
+1. The **output**
     
 
 ???
@@ -285,27 +304,13 @@ Point out the parts in the Rmd script. For further documentation on metadata
 https://rmarkdown.rstudio.com/docs/reference/rmd_metadata.html
     
 ---
-
-class: live-code
-
-# Basic anatomy II
-
-We look at the *output* anatomy for `01-bakeoff-report.Rmd` together:
-
-1. The **metadata**
-
-1. The **text** 
-
-1. The **code**
-
-1. The **output**
-
-
----
 background-image: url(images/rmarkdown_wizards.png)
 background-size: contain
 
 .footnote[Art by [Allison Horst](https://twitter.com/allison_horst?lang=en)]
+
+???
+Allison Horst was a [resident artist at RStudio](https://www.rstudio.com/blog/artist-in-residence/) in 2019 and produced and shared beautiful artwork to explain statistics and R concepts
 
 ---
 
