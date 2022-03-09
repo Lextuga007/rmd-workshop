@@ -110,7 +110,7 @@ for (this_series in series) {
     input = "01-bakeoff-report.Rmd",
     params = list(series = this_series), 
     output_format = "html_document", 
-    output_file = paste0("Report_", this_series))
+    output_file = glue::glue("Report_for_Series_{this_series}")) #<<
 }
 
 ```
@@ -132,7 +132,7 @@ purrr::map(
     input = "01-bakeoff-report.Rmd", 
     params = list(series = .x),  
     output_format = "word_document",
-    output_file = paste0("Report_", .x)
+    output_file = glue::glue("Report_for_Series", .x))
   )
 )
 
@@ -141,6 +141,7 @@ purrr::map(
 ]
 
 ??? 
+
 Code adapted from [Matt Dray's blog](https://www.rostrum.blog/2020/03/12/knit-with-params/)
 
 ---
