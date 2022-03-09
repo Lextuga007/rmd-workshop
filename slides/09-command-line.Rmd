@@ -80,7 +80,7 @@ What about on the command line?
 
 .pull-right[
 ```{r eval=FALSE}
-render("01-bakeoff-report.Rmd")
+rmarkdown::render("01-bakeoff-report.Rmd")
 ```
 
 ]
@@ -100,8 +100,6 @@ render("01-bakeoff-report.Rmd")
 
 rmarkdown::render("01-bakeoff-report.Rmd")
 ```
-
---
 
 Now try changing the parameters:
 

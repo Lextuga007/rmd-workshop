@@ -141,6 +141,8 @@ params:
 
 .pull-right[
 
+Also add this to the global options: 
+
 `knitr::opts_chunk$set(echo = params$show_code)`
 ]
 
@@ -195,21 +197,25 @@ class: your-turn
 
 # Your turn
 
-`r emo::ji("yarn")` **Knit** button and `Knit with Parameters...` after each step:=
+`r emo::ji("yarn")` **Knit** button and `Knit with Parameters...` after each step
 
-1. Install and add library() call for either [wesanderson](https://github.com/karthik/wesanderson) or [popthemes](https://github.com/johnmackintosh/popthemes)
+1. Install and add library() call for either [wesanderson](https://github.com/karthik/wesanderson) 
 
 1. Add a new parameter called `palette:` spaced like `series:`
 
-1. Add and replace `choices` with colour from the package `choices: [choice1, choice2, choice3]`
+1. Add under the parameter:
 
-1. Add code to the ggplot2 to change the output colours: +
-  `scale_colour_manual(values = wes_palette(params$palette))` or
-  `scale_colour_manual(values = pop_palette(params$palette))`
+```yaml 
+label: "Give this a new name?"
+value: Darjeeling1
+input: select
+choices: [GrandBudapest1, Darjeeling1, Darjeeling2, FantasticFox1, Royal2
+```
 
-use the parameter in our ggplot2 code.
+4. Add code to the ggplot2 to change the output colours: +
+  `scale_colour_manual(values = wes_palette(params$palette))` 
 
-_psst...`01-bakeoff-report-alison.Rmd` is there..._
+_psst...`01-bakeoff-report-alison.Rmd` has all the code..._
 
 _psst-psst...answer on the next slide..._
 
@@ -217,6 +223,10 @@ _psst-psst...answer on the next slide..._
 ```{r echo = FALSE}
 countdown(minutes = 5)
 ```
+
+???
+
+Issues may occur with grey pop up from shiny for some computers - possibly VPN/network issues.
 
 ---
 class: your-turn
@@ -229,16 +239,6 @@ class: your-turn
     value: GrandBudapest1
     input: select
     choices: [GrandBudapest1, Darjeeling1, Darjeeling2, FantasticFox1, Royal2]
-```
-
-or if you used popthemes:
-
-```yaml
-  palette: 
-    label: "Pop palette:"
-    value: aqua
-    input: select
-    choices: [aqua, bangles, beck, boo, bwitched]
 ```
 
 ---
