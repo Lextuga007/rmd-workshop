@@ -93,7 +93,7 @@ An integer specifying the level of documentation to add to the tangled script.
 
 When you have R script you want to make to RMarkdown
 
-Note this will over-write the existing Rmd file of the same name
+`r emo::ji("exclamation")` Note this will over-write scripts if they have the same name.
 
 ```{r eval=FALSE}
 
@@ -177,13 +177,16 @@ class: inverse, center, middle
 
 # <center>Source files</center>
 
-Instead of using import data code in the RMarkdown it can be "sourced" from another script:
+Instead of using import data code in the RMarkdown it can be "sourced" from another script.
 
 ```{r eval=FALSE}
 
-source("R/get-bakeoff-ratings.R")
+source("R/source_file_csv.R")
 
 ```
+
+???
+To show this use the `01-bakeoff-report.Rmd` and replace the `import-data` section with this code. The params$series don't need to be removed as this will still work.
 
 ---
 
@@ -217,11 +220,11 @@ Show and tell for this SQL code in an RMarkdown
 
 * Add the code `echo = FALSE` to the first chunk under `Default connection`.
 
-SQL chunks do not support the same options as R but these can be set globally.
+SQL chunks options are supported the same options as R and can also be set globally.
 
 ---
 
-# Take-aways
+# SQL Take-away points
 
 --
 
