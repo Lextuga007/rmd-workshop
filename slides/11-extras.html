@@ -4,7 +4,7 @@
     <title>Extras</title>
     <meta charset="utf-8" />
     <meta name="author" content="Zoë Turner" />
-    <meta name="date" content="2022-03-08" />
+    <meta name="date" content="2022-03-10" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/clipboard/clipboard.min.js"></script>
@@ -78,7 +78,7 @@ An integer specifying the level of documentation to add to the tangled script.
 
 When you have R script you want to make to RMarkdown
 
-Note this will over-write the existing Rmd file of the same name
+❗ Note this will over-write scripts if they have the same name.
 
 
 ```r
@@ -147,7 +147,7 @@ loop in a subfolder
 
 ```r
 for (f in files) 
-  rmarkdown::render(paste0("03-images/", f))
+  rmarkdown::render(glue::glue("03-images/", f))
 ```
 
 ]
@@ -167,14 +167,17 @@ class: inverse, center, middle
 
 # &lt;center&gt;Source files&lt;/center&gt;
 
-Instead of using import data code in the RMarkdown it can be "sourced" from another script:
+Instead of using import data code in the RMarkdown it can be "sourced" from another script.
 
 
 ```r
 
-source("R/get-bakeoff-ratings.R")
+source("R/source_file_csv.R")
 
 ```
+
+???
+To show this use the `01-bakeoff-report.Rmd` and replace the `import-data` section with this code. The params$series don't need to be removed as this will still work.
 
 ---
 
@@ -208,11 +211,11 @@ Show and tell for this SQL code in an RMarkdown
 
 * Add the code `echo = FALSE` to the first chunk under `Default connection`.
 
-SQL chunks do not support the same options as R but these can be set globally.
+SQL chunks options are supported the same options as R and can also be set globally.
 
 ---
 
-# Take-aways
+# SQL Take-away points
 
 --
 

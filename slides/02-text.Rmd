@@ -203,6 +203,8 @@ class: top
 
 # <center>Lists</center>
 
+Must have a space return between the text and the bullet
+
 .pull-left[
 
 ```markdown
@@ -210,8 +212,8 @@ The original cast included:
 
 - Sue Perkins (_host_)
 - Mel Giedroyc (_host_)
-- Mary Berry (_judge_) and
-- Paul Hollywood (_judge_).
+* Mary Berry (_judge_) and
+* Paul Hollywood (_judge_).
 
 In each episode, the amateur bakers are 
 given **three challenges** based on that 
@@ -233,8 +235,8 @@ The original cast included:
 
 - Sue Perkins (_host_)
 - Mel Giedroyc (_host_)
-- Mary Berry (_judge_) and
-- Paul Hollywood (_judge_).
+* Mary Berry (_judge_) and
+* Paul Hollywood (_judge_).
 
 In each episode, the amateur bakers are 
 given **three challenges** based on that 
@@ -248,6 +250,8 @@ week's theme.
 
 ???
 The introduction to R training uses the code (@) but this doesn't work necessarily in {xaringan} slides.
+
+Copying this into MS Teams loses the formatting so the space might get lost.
 
 ---
 
@@ -281,10 +285,10 @@ The link to the course material https://philosopher-analyst.netlify.app/rmd-work
 --
 
 .pull-right[
-The link to the [course material](https://philosopher-analyst.netlify.app/rmd-workshop/)
+The link to the [course material](https://philosopher-analyst.netlify.app/rmd-workshop/) using a highlighted word
 
 
-The link to the course material https://philosopher-analyst.netlify.app/rmd-workshop/
+Writing the full url links to the same url: https://philosopher-analyst.netlify.app/rmd-workshop/
 ]
 
 ---

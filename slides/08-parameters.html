@@ -4,7 +4,7 @@
     <title>Parameters</title>
     <meta charset="utf-8" />
     <meta name="author" content="Zoë Turner" />
-    <meta name="date" content="2022-03-08" />
+    <meta name="date" content="2022-03-10" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/clipboard/clipboard.min.js"></script>
@@ -132,6 +132,8 @@ params:
 
 .pull-right[
 
+Also add this to the global options: 
+
 `knitr::opts_chunk$set(echo = params$show_code)`
 ]
 
@@ -186,28 +188,36 @@ class: your-turn
 
 # Your turn
 
-🧶 **Knit** button and `Knit with Parameters...` after each step:=
+🧶 **Knit** button and `Knit with Parameters...` after each step
 
-1. Install and add library() call for either [wesanderson](https://github.com/karthik/wesanderson) or [popthemes](https://github.com/johnmackintosh/popthemes)
+1. Install and add library() call for either [wesanderson](https://github.com/karthik/wesanderson) 
 
 1. Add a new parameter called `palette:` spaced like `series:`
 
-1. Add and replace `choices` with colour from the package `choices: [choice1, choice2, choice3]`
+1. Add under the parameter:
 
-1. Add code to the ggplot2 to change the output colours: +
-  `scale_colour_manual(values = wes_palette(params$palette))` or
-  `scale_colour_manual(values = pop_palette(params$palette))`
+```yaml 
+label: "Give this a new name?"
+value: Darjeeling1
+input: select
+choices: [GrandBudapest1, Darjeeling1, Darjeeling2, FantasticFox1, Royal2
+```
 
-use the parameter in our ggplot2 code.
+4. Add code to the ggplot2 to change the output colours: +
+  `scale_colour_manual(values = wes_palette(params$palette))` 
 
-_psst...`01-bakeoff-report-alison.Rmd` is there..._
+_psst...`01-bakeoff-report-alison.Rmd` has all the code..._
 
 _psst-psst...answer on the next slide..._
 
 
-<div class="countdown" id="timer_6227969a" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_622a4723" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
+
+???
+
+Issues may occur with grey pop up from shiny for some computers - possibly VPN/network issues.
 
 ---
 class: your-turn
@@ -220,16 +230,6 @@ class: your-turn
     value: GrandBudapest1
     input: select
     choices: [GrandBudapest1, Darjeeling1, Darjeeling2, FantasticFox1, Royal2]
-```
-
-or if you used popthemes:
-
-```yaml
-  palette: 
-    label: "Pop palette:"
-    value: aqua
-    input: select
-    choices: [aqua, bangles, beck, boo, bwitched]
 ```
 
 ---

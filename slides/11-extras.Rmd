@@ -157,7 +157,7 @@ loop in a subfolder
 
 ```{r eval=FALSE}
 for (f in files) 
-  rmarkdown::render(paste0("03-images/", f))
+  rmarkdown::render(glue::glue("03-images/", f))
 ```
 
 ]

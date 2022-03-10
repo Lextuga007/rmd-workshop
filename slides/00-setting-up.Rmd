@@ -138,128 +138,28 @@ class: inverse, center, middle
 
 ---
 
-.left-column[
+# <center>Checking first...</center>
 
-# <i class="fab fa-github"></i>
+That everyone is/has:
 
-]
+* set up on RStudio Cloud (own laptops are fine to use instead)
+* installed packages
+* downloaded the files and can see them in Cloud Project or a local Project
 
-.right-column[
+--
 
-# GitHub:
+## Also note...
 
-[`r params$github_link`](`r params$github_link`)
+Code doesn't copy to MS Teams with the correct indentations but code can be copied from the [slides](https://philosopher-analyst.netlify.app/rmd-workshop),
 
-Click on "Use this template" (make sure you are logged in)
-
-```{r echo=FALSE}
-knitr::include_graphics("images/cloud-from-template.png")
-```
-
-]
-
----
-
-.left-column[
-
-# <i class="fab fa-github"></i>
-
-]
-
-.right-column[
-
-# In your repo
-
-Click on green button, then the clipboard to copy HTTPS
-
-```{r echo=FALSE}
-knitr::include_graphics("images/cloud-from-https.png")
-```
-]
-
----
-
-.left-column[
-
-# <i class="fas fa-cloud"></i>
-
-]
-
-.right-column[
-
-# rstudio.cloud:
-
-[`r params$cloud_link`](`r params$cloud_link`)
-
-1. Join space > Click on "Projects" (nothing there)
-
-1. New Project from GitHub Repo
-
-1. Use **your** HTTPS link:
-
-
-  ```{r echo=FALSE, out.width='50%'}
-  knitr::include_graphics("images/cloud-from-git.png")
-  ```
-
-4. Name your project (default is `Untitled`)
-
-]
-
----
-
-.left-column[
-
-# <i class="fas fa-cloud"></i>
-
-]
-
-.right-column[
-
-# Install packages
-
-```{r eval=FALSE}
-install.packages(c("tidyverse", "rmarkdown", "here", 
-                   "glue", "usethis", "distill", "bookdown",
-                   "remotes"))
-```
-
-]
+When scripts are opened in the latest version of RStudio and packages are not loaded they will be prompted at the top of the editor to install
 
 ???
-When the rmds are opened RStudio will say along the top if there are any missing
-packages from the code. 
 
-But the next slide includes a package that isn't in the code {usethis}
-
-In the cloud takes about 1 minutes to load all the packages.
+Code chunks on the slide have a button in the top right to Copy Code without having to highlight and copy.
 
 ---
 
-.left-column[
-
-# <i class="fas fa-cloud"></i>
-
-]
-
-.right-column[
-
-# Connect to GitHub
-
-Still in rstudio.cloud:
-
-```{r eval=FALSE}
-library(usethis)
-use_git_config(
-  scope = "project",
-  user.name = "Jane",
-  user.email = "jane@example.org"
-)
-```
-
-]
-
----
 class: your-turn
 
 # Your turn

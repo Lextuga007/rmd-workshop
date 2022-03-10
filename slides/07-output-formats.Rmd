@@ -102,6 +102,8 @@ Use the drop-down menu for the `r emo::ji("yarn")` **Knit** button and try:
 
 1. Knit to PDF
 
+1. Add toc (table of contents) to both
+
 ]
 
 .pull-right[
@@ -124,7 +126,7 @@ Do you have new output formats in your YAML?
 
 ```{r echo=FALSE}
 yml_empty() %>% 
-  yml_output(html_document(toc = TRUE, toc_float = TRUE, theme = "flatly"), 
+  yml_output(html_document(toc = TRUE), 
              word_document(toc = TRUE), 
              pdf_document(toc = TRUE)
              )  %>% 
@@ -162,6 +164,8 @@ class: inverse, center, middle
 + Easy to forget the possible `values` for a given `key`
 
 ???
+
+Output options `toc_float = true` works only in html, not in word.
 
 New language, not the same as R. [Blog](https://www.apreshill.com/blog/2020-05-how-i-teach-r-markdown/) by Alison Hill for educators but useful for learners too to see the difficulties.
 
@@ -208,14 +212,12 @@ yml_empty() %>%
 ```
 ]
 
-__hint: copying the text will help get the tabs right__
-
 ```{r echo = FALSE}
 countdown(minutes = 2)
 ```
 
 
-.footnote[(note: this requires you to install the [`bookdown` package](https://bookdown.org/yihui/bookdown/))]
+.footnote[(note: this requires you to install the [`bookdown` package](https://bookdown.org/yihui/bookdown/)) and point 2. might not update on the RStudio Cloud]
 
 ???
 Running this code in the cloud will prompt an installation of the {bookdown} package which is very quick to load

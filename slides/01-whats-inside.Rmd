@@ -198,6 +198,10 @@ yml_empty() %>%
   asis_yaml_output()
 ```
 
+??? 
+
+Copying the code to MS Teams to share will lose the formatting!
+
 ---
 
 class: inverse, center, middle

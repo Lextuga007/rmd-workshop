@@ -91,7 +91,9 @@ Together we open RMarkdown script `01-bakeoff-report.Rmd`:
 
 Shortcut key to run a chunk `Ctrl + Shift + Enter`
 
-Shortcuts for chunks can be amended or added in `Tools/Modify Keyboard Shortcuts...`
+Some computers return an ì when `Ctrl + Alt + i` is used. Possibly to do with the Fn layout on the keyboard?
+
+Might need the shortcut to be added/amended `Tools/Modify Keyboard Shortcuts...`
 
 ---
 
@@ -283,6 +285,8 @@ Chunks will work without names but will have default names like
 * Chunk 1, 
 * Chunk 2 and so on.
 
+Shows the headers AND the chunk labels.
+
 ---
 class: inverse, center, middle
 
@@ -408,6 +412,16 @@ R Markdown still runs the code in the chunk, and the results can be used by othe
 
 # <center>results</center>
 
+Note here the code has more than one control and they are separated by a comma.
+
+[From RMarkdown tips](https://garthtarr.github.io/meatR/tips.html):
+
+results = 'hide' hide the results of the chunk output (i.e. don’t show them)
+results = 'hold' hold the results of the chunk output until all commands in the 
+chunk have been run
+results = ['asis'](https://garrettgman.github.io/rmarkdown/authoring_rcodechunks.html) is required to ensure that
+the raw table output isn’t processed further by knitr
+
 .pull-left[
 
 ````
@@ -427,22 +441,6 @@ glimpse(ratings)
 
 ]
 
-???
-
-Note here the code has more than one control and they are separated by a comma.
-
-[From RMarkdown tips](https://garthtarr.github.io/meatR/tips.html):
-
-results = 'hide' hide the results of the chunk output (i.e. don’t show them)
-results = 'hold' hold the results of the chunk output until all commands in the 
-chunk have been run
-
-[On 'asis'](https://garrettgman.github.io/rmarkdown/authoring_rcodechunks.html)
-Note the use of the results='asis' chunk option. This is required to ensure that
-the raw table output isn’t processed further by knitr. The kable function 
-includes several options to control the maximum number of digits for numeric 
-columns, alignment, etc (refer to the knitr package documentation for additional
-details)
 ---
 
 # <center>message / warning</center>
@@ -486,7 +484,7 @@ library(tidyverse)
 
 + Multiple options separated by commas<br>`{r option1=value, option2=value}`
 
-+ Careful! The `r` part is the **code engine** (other engines possible)
++ Careful! The `r` part is the **R code engine** (other engines possible)
 
 ???
 
@@ -496,7 +494,7 @@ through the NHS-R Community, [link here](https://philosopher-analyst.netlify.app
 ---
 class: inverse, center, middle
 
-# <center>Repeated Chunk labels</center>
+# <center>Naming Chunk labels</center>
 
 <span class="fa-stack fa-4x">
   <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
@@ -505,28 +503,27 @@ class: inverse, center, middle
 
 ---
 
-# <center>Reapeated Chunk labels</center>
+# <center>Beware Repeated Chunk labels</center>
 
 .pull-left[
 
 ````
-```{r peek, echo=FALSE, results='hide'}`r ''`
+```{r peek}`r ''`
 glimpse(ratings)
 ```
 ````
+
+````
+```{r peek}`r ''`
+head(ratings)
+```
+````
+
 
 ]
 
 --
 .pull-right[
-
-+ Careful! No duplicate chunk labels
-
-    ````
-    ```{r peek}`r ''`
-    head(ratings)
-    ```
-    ````
 
     ```
     Error in parse_block(g[-1], g[1], params.src) : 
@@ -536,11 +533,6 @@ glimpse(ratings)
     ```
 
 ]
-
-???
-
-Live code example with the peek chunk, knit then repeat the chunk either by copying
-or using `Ctrl + Alt + i` for a new chunk and then typing `head(ratings)`
 
 ---
 
@@ -554,13 +546,11 @@ class: middle, center
 
 `my-plot`
 
-`myplot`
+`myPlot`
 
-`myplot1`
+`MyPlot1`
 
-`myplot-1`
-
-`MY-PLOT`
+`my-plot-1`
 
 ]
 
@@ -572,7 +562,15 @@ class: middle, center
 
 `my plot`
 
-everything else!
+won't work. 
+
+Some others do work but are conventionally avoided like:
+
+`myplot`
+
+`MYPLOT`
+
+`MY-PLOT`
 
 ]
 
@@ -619,6 +617,9 @@ knitr::opts_chunk$set(
 
 ]
 
+???
+
+`include = FALSE` prevents code and results from appearing in the finished file. R Markdown still runs the code in the chunk, and the results can be used by other chunks.
 ---
 class: live-code
 
@@ -648,9 +649,9 @@ Customize this report.
 
 1. Label the code chunks with plots.
 
-1. Add your setup chunk. 
+1. Add your setup chunk along with the `fig.path = `
 
-1. Use the RStudio outline pane; rejoice!
+1. Navigate using the RStudio outline pane; rejoice!
 
 
 ```{r echo = FALSE}
@@ -687,11 +688,11 @@ class: live-code
 
 # Reusing chunk code
 
-</br>
+Together we'll open:
 
-1. In file `01-bakeoff-report.Rmd` name the chart chunk under `Ratings` `viewers-by-days`
+1. File `01-bakeoff-report.Rmd` name chunk 3 (under `# Ratings`) `viewers-by-days`
 
-1. Create a new chunk, shortcut <kbd>Ctrl + Alt + i</kbd>
+1. Create a new chunk, shortcut <kbd>Ctrl + Alt + i</kbd> or the green c button in RStudio
 
 1. Type `{r, ref.label="viewers-by-days", echo=TRUE, eval=FALSE}` in the new chunk header 
 
@@ -701,11 +702,11 @@ class: live-code
 
 class: your-turn
 
-# <center>Reusing chunk options</center>
+# <center>Your turn</center>
 
 Following the slide previously and `r emo::ji("yarn")` **Knit** button after each step:
 
-1. In the chunk `viewers-by-days` under `Ratings` add `fig.cap = "Nice chart"` to the chunk options 
+1. In the chunk `viewers-by-days` under `# Ratings` add `fig.cap = "Nice chart"` to the chunk options 
 
 1. Create a new chunk, shortcut <kbd>Ctrl + Alt + i</kbd>
 
@@ -719,6 +720,11 @@ Following the slide previously and `r emo::ji("yarn")` **Knit** button after eac
 ```{r echo = FALSE}
 countdown(minutes = 5)
 ```
+
+???
+
+`opts.label` cannot be set to FALSE but is default and takes all the global chunk set ups. In this case it will show the code 
+`opts.label = TRUE` inherits the chunk options from the named chunk.
 
 ---
 

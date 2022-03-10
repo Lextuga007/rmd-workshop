@@ -68,15 +68,29 @@ class: inverse, center, middle
 
 .pull-left[
 
+There is a hierarchy of hashes for tabs
+
 ```markdown
 
-## Series Analyss {.tabset}
+## Series Analysis {.tabset}
 
 ### Overview
 
 ### Ratings
 
 ```
+
+Also
+
+```markdown
+
+# Series Analysis {.tabset}
+
+## Overview
+
+## Ratings
+```
+
 ]
 
 --

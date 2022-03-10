@@ -102,7 +102,7 @@ sponge (_pictured_), is part of the classic
 English village fête,
 which inspired the series.
 <div id="bg">
-  <img src="http://bit.ly/blue-ribbon-sponge" alt="picture of a sponge cake from a village competition">
+  <img src="http://bit.ly/blue-ribbon-sponge">
 </div> 
 ```
 ]
@@ -115,7 +115,7 @@ sponge (_pictured_), is part of the classic
 English village fête,
 which inspired the series.
 <div id="bg">
-  <img src="http://bit.ly/blue-ribbon-sponge" alt="Picture of a sponge cake from a village competition">
+  <img src="http://bit.ly/blue-ribbon-sponge">
 </div> 
 ]
 
@@ -320,9 +320,9 @@ knitr::include_graphics("bakers_1.png")
 ```
 ````
 
--- 
-
 ]
+
+--
 
 .pull-right[
 
@@ -382,7 +382,7 @@ More resizing notes in this [blog](https://sebastiansauer.github.io/figure_sizin
 
 class: inverse, center, middle
 
-# <center>Links</center>
+# <center>Hyperlinks</center>
 
 <span class="fa-stack fa-4x">
 <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
@@ -391,7 +391,7 @@ class: inverse, center, middle
   
 ---
 
-# <center>Links - markdown</center>
+# <center>Hyperlinks - markdown</center>
 
 .pull-left[
 ```markdown
