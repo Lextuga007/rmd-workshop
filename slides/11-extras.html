@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Zoë Turner" />
     <meta name="date" content="2022-03-22" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/clipboard/clipboard.min.js"></script>
     <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
@@ -137,7 +138,10 @@ Use for loop code to run all the files:
 
 
 ```r
-for (f in files) rmarkdown::render(f)
+purrr::map(
+  .x = files,  
+  .f = ~ rmarkdown::render(glue::glue(.x))
+)
 ```
 
 
@@ -145,8 +149,10 @@ loop in a subfolder
 
 
 ```r
-for (f in files) 
-  rmarkdown::render(glue::glue("03-images/", f))
+purrr::map(
+  .x = files, 
+  .f = ~ rmarkdown::render(glue::glue("slides/", .x))
+)
 ```
 
 ]

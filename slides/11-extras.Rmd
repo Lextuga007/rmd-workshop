@@ -149,15 +149,20 @@ files <- list.files(path = "03-images/",
 Use for loop code to run all the files:
 
 ```{r eval=FALSE}
-for (f in files) rmarkdown::render(f)
+purrr::map(
+  .x = files,  
+  .f = ~ rmarkdown::render(glue::glue(.x))
+)
 ```
 
 
 loop in a subfolder
 
 ```{r eval=FALSE}
-for (f in files) 
-  rmarkdown::render(glue::glue("03-images/", f))
+purrr::map(
+  .x = files, 
+  .f = ~ rmarkdown::render(glue::glue("slides/", .x))
+)
 ```
 
 ]
