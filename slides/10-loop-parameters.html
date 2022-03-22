@@ -4,8 +4,7 @@
     <title>Render loops</title>
     <meta charset="utf-8" />
     <meta name="author" content="Zoë Turner" />
-    <meta name="date" content="2022-03-10" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
+    <meta name="date" content="2022-03-22" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/clipboard/clipboard.min.js"></script>
     <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
@@ -117,7 +116,7 @@ purrr::map(
     input = "01-bakeoff-report.Rmd", 
     params = list(series = .x),  
     output_format = "word_document",
-    output_file = glue::glue("Report_for_Series", .x))
+*   output_file = glue::glue("Report_for_Series", .x))
   )
 )
 
@@ -125,9 +124,7 @@ purrr::map(
 
 ]
 
-??? 
-
-Code adapted from [Matt Dray's blog](https://www.rostrum.blog/2020/03/12/knit-with-params/)
+Purr code adapted from [Matt Dray's blog](https://www.rostrum.blog/2020/03/12/knit-with-params/)
 
 ---
 class: inverse

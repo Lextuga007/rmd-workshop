@@ -224,7 +224,7 @@ SQL chunks options are supported the same options as R and can also be set globa
 
 ---
 
-# SQL Take-away points
+# SQL Summary points
 
 --
 
@@ -236,13 +236,20 @@ SQL chunks options are supported the same options as R and can also be set globa
 
 --
 
-`r emo::ji("exclamation")` **Limitations of SQL** CTEs are not always supported, depending on what package you use
+`r emo::ji("heavy_check_mark")` **Use SQL power** R uses RAM so make use of the power of SQL servers
+
+--
+
+`r emo::ji("exclamation")` **Each temporary table is an object** Unlike in SQL you cannot create a temporary table and then refer to it in later code. You have to use CTEs
 
 --
 
 `r emo::ji("exclamation")` **nvarchar(max)** Some tables in SQL use nvarchar(max), varchar(max) or binary which cause your code to fail.  
-The solution is to do a SELECT statement with the column at the end.
+The solution is to do a SELECT statement with the column at the end
 
+--
+
+`r emo::ji("exclamation")` **Debugging is hard** Errors don't come through from SQL so can be hard to debug from RStudio.
 
 ---
 

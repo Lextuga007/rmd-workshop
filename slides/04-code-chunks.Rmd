@@ -109,7 +109,7 @@ ratings %>%
 ```
 ````
 
-What is the fate of this chunk?
+Let's see the fate of this chunk?
 
 ]
 
@@ -146,7 +146,7 @@ top_viewers <- ratings %>%
 ```
 ````
 
-What fate do you predict here?
+What happens here if we create an object?
 
 ]
 
@@ -163,8 +163,7 @@ top_viewers <- ratings %>%
 
 ???
 
-Not quite what we expect as this is just the code showing, not the results, which
-is the main aim of RMarkdown. 
+Not quite what we expect as this is just the code showing, not the results, which is the main aim of RMarkdown. 
 
 ---
 
@@ -181,6 +180,7 @@ top_viewers <- ratings %>%
 top_viewers
 ```
 ````
+Can we now see the results?
 
 ]
 
@@ -235,7 +235,7 @@ ggplot(viewers, aes(episode, viewers,
 ```
 ````
 
-What about this one?
+What's going to happen with this chunk?
 
 ]
 
@@ -299,7 +299,7 @@ class: inverse, center, middle
 
 ---
 
-# <center>No Chunk options</center>
+# <center>No chunk options</center>
 
 .pull-left[
 
@@ -320,9 +320,6 @@ glimpse(ratings)
 ```
 
 ]
-
-???
-Just a plain r means that R code runs. Chunks can also be SQL - requires SQL connections.
 
 ---
 
@@ -403,6 +400,8 @@ glimpse(ratings)
 
 ???
 
+Often seen at the top of code where you see libraries calls and setup.
+
 [From RStudio lesson](https://rmarkdown.rstudio.com/lesson-3.html):
 
 FALSE prevents code and results from appearing in the finished file. 
@@ -417,8 +416,9 @@ Note here the code has more than one control and they are separated by a comma.
 [From RMarkdown tips](https://garthtarr.github.io/meatR/tips.html):
 
 results = 'hide' hide the results of the chunk output (i.e. don’t show them)
-results = 'hold' hold the results of the chunk output until all commands in the 
-chunk have been run
+
+results = 'hold' hold the results of the chunk output until all commands in the chunk have been run
+
 results = ['asis'](https://garrettgman.github.io/rmarkdown/authoring_rcodechunks.html) is required to ensure that
 the raw table output isn’t processed further by knitr
 
@@ -440,6 +440,10 @@ glimpse(ratings)
 ```
 
 ]
+
+???
+
+results = "asis" is used in a later part of the course about [dynamic tabs](https://lextuga007.github.io/rmd-workshop/slides/06-tabs.html#10).
 
 ---
 
@@ -478,7 +482,7 @@ library(tidyverse)
 
 ---
 
-# <center>Chunk option take-aways</center>
+# <center>Chunk option summary</center>
 
 + Place between curly braces<br>`{r option=value}`
 
@@ -558,13 +562,11 @@ class: middle, center
 
 ### Bad
 
+These work but are conventionally avoided:
+
 `my_plot`
 
 `my plot`
-
-won't work. 
-
-Some others do work but are conventionally avoided like:
 
 `myplot`
 
@@ -714,7 +716,7 @@ Following the slide previously and `r emo::ji("yarn")` **Knit** button after eac
 
 1. Add to the new chunk options `{opts.label = TRUE}` 
 
-1. Finally, add the following `{fig.cap = "Duplicate chart!}`
+1. Finally, add the following `{fig.cap = "Duplicate chart!"}`
 
 
 ```{r echo = FALSE}

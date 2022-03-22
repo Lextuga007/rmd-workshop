@@ -358,6 +358,10 @@ knitr::include_graphics("images/joy-of-fp/bakers_1.png")
 
 ]
 
+???
+
+More information on resizing images (and charts too) from this [blog](http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/#arguments-out.width-and-out.height-apply-to-both-existing-images-and-r-generated-figures)
+
 ---
 
 # <center>Centre images</center>

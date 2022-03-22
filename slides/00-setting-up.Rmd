@@ -144,7 +144,7 @@ That everyone is/has:
 
 * set up on RStudio Cloud (own laptops are fine to use instead)
 * installed packages
-* downloaded the files and can see them in Cloud Project or a local Project
+* downloaded the files and can see them in [Cloud Project or a local Project](https://nhs-r-community.github.io/intro_r/02-workshop_projects.html#1)
 
 --
 
@@ -157,6 +157,21 @@ When scripts are opened in the latest version of RStudio and packages are not lo
 ???
 
 Code chunks on the slide have a button in the top right to Copy Code without having to highlight and copy.
+
+---
+class: live-code
+
+Together we'll open an RMarkdown template:
+
+* Go to `File/New File/RMarkdown...`
+* A wizard will prompt a Title, Author and Date (in new versions of RStudio)
+* **Knit** this document and save the file when the wizard appears
+
+???
+
+It runs extremely quickly but the file must be saved to knit as it creates the .md file and then leaves the output (after clearing away the .md file).
+
+This template is useful for debugging as it works quickly and doesn't rely upon any packages.
 
 ---
 
@@ -181,7 +196,7 @@ Try to identify these parts in the source and the output:
 
 
 ```{r echo = FALSE}
-countdown(minutes = 5)
+countdown(minutes = 2)
 ```
 
 ---

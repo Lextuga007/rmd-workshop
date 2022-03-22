@@ -4,8 +4,7 @@
     <title>Text</title>
     <meta charset="utf-8" />
     <meta name="author" content="Zoë Turner" />
-    <meta name="date" content="2022-03-10" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
+    <meta name="date" content="2022-03-22" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/clipboard/clipboard.min.js"></script>
     <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
@@ -98,10 +97,20 @@ class: middle, center
 
 --
 
-&lt;img src="images/header-outline.PNG" width="317" /&gt;
+.pull-left[
+
+![Screenshot of Headers Outline as appears in older versions of RStudio ](images/header-outline.PNG)
+
+]
+
+.pull-right[
+
+![Screenshot of Headers Outline as appears in newer versions of RStudio, includes the word Outline ](images/outline-headers.PNG)
+
+]
 
 ???
-Navigate headers by using the document outline button in RStudio. 
+RStudio updated is on the right.
 
 ---
 class: inverse, center, middle
@@ -115,8 +124,6 @@ class: inverse, center, middle
 
 ---
 # &lt;center&gt;Formatting Text&lt;/center&gt;
-
---
 
 .pull-left[
 ```markdown
@@ -140,6 +147,8 @@ is a British television baking competition.
 
 Using markdown language we format text as bold or italics. 
 
+You might notice that underline isn't covered, it's not included in markdown but can be done using html. However, it's not accessible for everyone so is best avoided.
+
 ---
 class: inverse, center, middle
 
@@ -155,9 +164,17 @@ class: middle, center
 
 # &lt;center&gt;Visual Markdown Editing&lt;/center&gt;
 
+.pull-left[
 ![Screenshot of Visual Editor button, looks like an A, also a compass](images/visual-editor-rstudio.PNG)
+]
+
+.pull-right[
+![Screenshot of Visual Editor button, written out](images/visual-editor-word.PNG)
+]
 
 ???
+
+Different versions of RStudio have different buttons.
 
 As of [RStudio version 1.4](https://www.rstudio.com/blog/rstudio-v1-4-preview-visual-markdown-editing/)
 there is now Visual Markdown Editing, located in the Editor pane (when an RMarkdown script is open)
@@ -194,8 +211,9 @@ The original cast included:
 
 - Sue Perkins (_host_)
 - Mel Giedroyc (_host_)
-* Mary Berry (_judge_) and
-* Paul Hollywood (_judge_).
+
+** Mary Berry (_judge_) and
+** Paul Hollywood (_judge_).
 
 In each episode, the amateur bakers are 
 given **three challenges** based on that 
@@ -266,10 +284,14 @@ The link to the course material https://philosopher-analyst.netlify.app/rmd-work
 
 --
 
+&lt;/br&gt;
+&lt;/br&gt;
 .pull-right[
 The link to the [course material](https://philosopher-analyst.netlify.app/rmd-workshop/) using a highlighted word
 
-
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;/br&gt;
 Writing the full url links to the same url: https://philosopher-analyst.netlify.app/rmd-workshop/
 ]
 

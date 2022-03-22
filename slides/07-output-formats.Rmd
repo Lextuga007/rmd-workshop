@@ -217,7 +217,7 @@ countdown(minutes = 2)
 ```
 
 
-.footnote[(note: this requires you to install the [`bookdown` package](https://bookdown.org/yihui/bookdown/)) and point 2. might not update on the RStudio Cloud]
+.footnote[(note: this requires you to install the [`bookdown` package](https://bookdown.org/yihui/bookdown/)) and point 2. RStudio Cloud might need a refresh F5 to update the menu]
 
 ???
 Running this code in the cloud will prompt an installation of the {bookdown} package which is very quick to load

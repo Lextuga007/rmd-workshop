@@ -117,11 +117,11 @@ Look at the source, then `r emo::ji("yarn")` **Knit** after each step.
 
 1. Add a header `# Series Analysis`.
 
-1. Change `# Overview` to `### Overview {.tabset}`.
+1. Change `# Overview` to `## Overview {.tabset}`.
 
-1. Change `# Ratings` to `### Ratings`.
+1. Change `# Ratings` to `## Ratings`.
 
-1. Remove the space in the second header `###Ratings`. What happens?
+1. Remove the space in the second header `##Ratings`. What happens?
 
 
 ```{r echo = FALSE}
@@ -146,11 +146,11 @@ class: inverse, center, middle
 
 ```markdown
 
-## Series Analysis {.tabset, .tabset-fade}
+# Series Analysis {.tabset .tabset-fade}
 
-### Overview
+## Overview
 
-### Ratings
+## Ratings
 
 ```
 ]
@@ -162,6 +162,8 @@ class: inverse, center, middle
 ![Screenshot of the tabsets with the headers as above, pillsets have rounded edges](images/tabset-pills.PNG)
 
 ]
+
+
 
 ---
 class: inverse, center, middle
@@ -189,7 +191,7 @@ Together:
 1. Create a list of days 
 
 ```markdown 
-viewers <- viewers %>% select(days) %>% unique() %>% pull()
+days <- viewers %>% select(days) %>% unique() %>% pull()
 ```
 
 5. Copy loop code:
@@ -197,6 +199,7 @@ viewers <- viewers %>% select(days) %>% unique() %>% pull()
 ```markdown
 for(i in days){ 
   cat("###", i, '<br>', '\n')
+  
   data <- viewers %>% 
     filter(days == i) 
   
@@ -217,6 +220,8 @@ for(i in days){
 ```
 
 ???
+**The new code chunk must be below the Ratings section as that's where the `viewers` data is created.**
+
 As with so much in R most things can be automated. If you were to require many tabs to be created for teams/wards/hospitals then automating this using a loop can be useful. First example shared in the [NHS-R Community demos and how tos](https://github.com/nhs-r-community/demos-and-how-tos/blob/main/rmarkdown/loop_tabs/loop_tabs.Rmd)
 
 *`results='asis'`*

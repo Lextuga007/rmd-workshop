@@ -4,8 +4,7 @@
     <title>Extras</title>
     <meta charset="utf-8" />
     <meta name="author" content="Zoë Turner" />
-    <meta name="date" content="2022-03-10" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
+    <meta name="date" content="2022-03-22" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/clipboard/clipboard.min.js"></script>
     <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
@@ -215,7 +214,7 @@ SQL chunks options are supported the same options as R and can also be set globa
 
 ---
 
-# SQL Take-away points
+# SQL Summary points
 
 --
 
@@ -227,13 +226,20 @@ SQL chunks options are supported the same options as R and can also be set globa
 
 --
 
-❗ **Limitations of SQL** CTEs are not always supported, depending on what package you use
+✔️ **Use SQL power** R uses RAM so make use of the power of SQL servers
+
+--
+
+❗ **Each temporary table is an object** Unlike in SQL you cannot create a temporary table and then refer to it in later code. You have to use CTEs
 
 --
 
 ❗ **nvarchar(max)** Some tables in SQL use nvarchar(max), varchar(max) or binary which cause your code to fail.  
-The solution is to do a SELECT statement with the column at the end.
+The solution is to do a SELECT statement with the column at the end
 
+--
+
+❗ **Debugging is hard** Errors don't come through from SQL so can be hard to debug from RStudio.
 
 ---
 

@@ -209,7 +209,7 @@ class: your-turn
 label: "Give this a new name?"
 value: Darjeeling1
 input: select
-choices: [GrandBudapest1, Darjeeling1, Darjeeling2, FantasticFox1, Royal2
+choices: [GrandBudapest1, Darjeeling1, Darjeeling2, FantasticFox1, Royal2]
 ```
 
 4. Add code to the ggplot2 to change the output colours: +

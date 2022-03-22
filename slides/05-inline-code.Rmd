@@ -128,7 +128,7 @@ class: inverse, center, middle
 ---
 class: your-turn
 
-# R code in the YAML
+# Your turn
 
 In the file `01-bakeoff-report.Rmd` 
 
@@ -195,10 +195,8 @@ class: inverse, center, middle
 
 .pull-left[
 
-```{r echo = FALSE}
-yml_empty() %>% 
-  yml_date("`r format(Sys.time(), '%d %B %Y')`") %>% 
-  asis_yaml_output()
+```{r echo = TRUE, eval = FALSE}
+"`r format(Sys.time(), '%d %B %Y')`"
 ```
 ]
 

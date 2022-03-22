@@ -166,7 +166,7 @@ class: your-turn
 
 ## Add output options to YAML
 
-Use `?html_document` from your R console to find the code to:
+Use `?rmarkdown::html_document` from your R console to find the code to:
 
 1. Add a floating table of contents
 
@@ -198,7 +198,7 @@ yml_empty() %>%
   asis_yaml_output()
 ```
 
-??? 
+???
 
 Copying the code to MS Teams to share will lose the formatting!
 
@@ -280,7 +280,9 @@ yml_empty() %>%
 
 ]
 
-Now click on knit button and pick __"Knit with Parameters."__ How is this different from what you did above?
+Now click on knit button and pick __"Knit with Parameters."__ How is this different from what you did above? 
+
+Note: this might appear as a grey box if your VPN/Network has strict security
 
 
 ```{r echo = FALSE}
