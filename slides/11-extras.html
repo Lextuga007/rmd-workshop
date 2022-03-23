@@ -4,8 +4,7 @@
     <title>Extras</title>
     <meta charset="utf-8" />
     <meta name="author" content="Zoë Turner" />
-    <meta name="date" content="2022-03-22" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
+    <meta name="date" content="2022-03-23" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/clipboard/clipboard.min.js"></script>
     <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
@@ -151,7 +150,7 @@ loop in a subfolder
 ```r
 purrr::map(
   .x = files, 
-  .f = ~ rmarkdown::render(glue::glue("slides/", .x))
+  .f = ~ rmarkdown::render(glue::glue("03-images/", .x))
 )
 ```
 
@@ -245,7 +244,11 @@ The solution is to do a SELECT statement with the column at the end
 
 --
 
-❗ **Debugging is hard** Errors don't come through from SQL so can be hard to debug from RStudio.
+❗ **Debugging is hard** Errors don't come through from SQL so can be hard to debug from RStudio
+
+--
+
+❗ **Case sensitivity** Microsoft SQL is not case sensitive and R is.
 
 ---
 

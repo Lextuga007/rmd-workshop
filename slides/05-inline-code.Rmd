@@ -158,7 +158,7 @@ yml_empty() %>%
 
 
 ```{r echo = FALSE}
-countdown(minutes = 5)
+countdown(minutes = 3)
 ```
 
 ???

@@ -161,7 +161,7 @@ loop in a subfolder
 ```{r eval=FALSE}
 purrr::map(
   .x = files, 
-  .f = ~ rmarkdown::render(glue::glue("slides/", .x))
+  .f = ~ rmarkdown::render(glue::glue("03-images/", .x))
 )
 ```
 
@@ -254,7 +254,11 @@ The solution is to do a SELECT statement with the column at the end
 
 --
 
-`r emo::ji("exclamation")` **Debugging is hard** Errors don't come through from SQL so can be hard to debug from RStudio.
+`r emo::ji("exclamation")` **Debugging is hard** Errors don't come through from SQL so can be hard to debug from RStudio
+
+--
+
+`r emo::ji("exclamation")` **Case sensitivity** Microsoft SQL is not case sensitive and R is.
 
 ---
 

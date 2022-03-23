@@ -4,7 +4,7 @@
     <title>Code Chunks</title>
     <meta charset="utf-8" />
     <meta name="author" content="Zoë Turner" />
-    <meta name="date" content="2022-03-22" />
+    <meta name="date" content="2022-03-23" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/clipboard/clipboard.min.js"></script>
     <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
@@ -108,11 +108,10 @@ ratings %&gt;%
   filter(series == 1) %&gt;% 
   top_n(1, viewers_7day)
 #&gt; # A tibble: 1 x 11
-#&gt;   series episode uk_airdate viewers_7day viewers_28day network_rank channels_rank
-#&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;date&gt;            &lt;dbl&gt;         &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;
-#&gt; 1      1       5 2010-09-14         3.03             1           NA            NA
-#&gt; # ... with 4 more variables: bbc_iplayer_requests &lt;dbl&gt;, episode_count &lt;dbl&gt;,
-#&gt; #   us_season &lt;dbl&gt;, us_airdate &lt;chr&gt;
+#&gt;   series episode uk_airdate viewers_7day viewers_28day network_rank channels_rank bbc_iplayer_requests episode_count
+#&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;date&gt;            &lt;dbl&gt;         &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;                &lt;dbl&gt;         &lt;dbl&gt;
+#&gt; 1      1       5 2010-09-14         3.03             1           NA            NA                   NA             5
+#&gt; # ... with 2 more variables: us_season &lt;dbl&gt;, us_airdate &lt;chr&gt;
 ```
 
 ]
@@ -192,11 +191,10 @@ top_viewers &lt;- ratings %&gt;%
 
 top_viewers
 #&gt; # A tibble: 1 x 11
-#&gt;   series episode uk_airdate viewers_7day viewers_28day network_rank channels_rank
-#&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;date&gt;            &lt;dbl&gt;         &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;
-#&gt; 1      1       5 2010-09-14         3.03             1           NA            NA
-#&gt; # ... with 4 more variables: bbc_iplayer_requests &lt;dbl&gt;, episode_count &lt;dbl&gt;,
-#&gt; #   us_season &lt;dbl&gt;, us_airdate &lt;chr&gt;
+#&gt;   series episode uk_airdate viewers_7day viewers_28day network_rank channels_rank bbc_iplayer_requests episode_count
+#&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;date&gt;            &lt;dbl&gt;         &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;                &lt;dbl&gt;         &lt;dbl&gt;
+#&gt; 1      1       5 2010-09-14         3.03             1           NA            NA                   NA             5
+#&gt; # ... with 2 more variables: us_season &lt;dbl&gt;, us_airdate &lt;chr&gt;
 ```
 
 ]
@@ -312,17 +310,17 @@ glimpse(ratings)
 glimpse(ratings)
 #&gt; Rows: 94
 #&gt; Columns: 11
-#&gt; $ series               &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, ~
-#&gt; $ episode              &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, ~
-#&gt; $ uk_airdate           &lt;date&gt; 2010-08-17, 2010-08-24, 2010-08-31, 2010-09-07, 2010-09-14, 20~
-#&gt; $ viewers_7day         &lt;dbl&gt; 2.24, 3.00, 3.00, 2.60, 3.03, 2.75, 3.10, 3.53, 3.82, 3.60, 3.8~
-#&gt; $ viewers_28day        &lt;dbl&gt; 7, 3, 2, 4, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
-#&gt; $ network_rank         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-#&gt; $ channels_rank        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-#&gt; $ bbc_iplayer_requests &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-#&gt; $ episode_count        &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ~
-#&gt; $ us_season            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 5, 5, 5~
-#&gt; $ us_airdate           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, "June 2~
+#&gt; $ series               &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, ~
+#&gt; $ episode              &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6,~
+#&gt; $ uk_airdate           &lt;date&gt; 2010-08-17, 2010-08-24, 2010-08-31, 2010-09-07, 2010-09-14, 2010-09-21, 2011-08-16, 2011-~
+#&gt; $ viewers_7day         &lt;dbl&gt; 2.24, 3.00, 3.00, 2.60, 3.03, 2.75, 3.10, 3.53, 3.82, 3.60, 3.83, 4.25, 4.42, 5.06, 3.85, ~
+#&gt; $ viewers_28day        &lt;dbl&gt; 7, 3, 2, 4, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
+#&gt; $ network_rank         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
+#&gt; $ channels_rank        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
+#&gt; $ bbc_iplayer_requests &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
+#&gt; $ episode_count        &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,~
+#&gt; $ us_season            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 1, 1~
+#&gt; $ us_airdate           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, "June 22, 2018", "June 22, 2018", ~
 ```
 
 ]
@@ -348,17 +346,17 @@ glimpse(ratings)
 ```
 #&gt; Rows: 94
 #&gt; Columns: 11
-#&gt; $ series               &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, ~
-#&gt; $ episode              &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, ~
-#&gt; $ uk_airdate           &lt;date&gt; 2010-08-17, 2010-08-24, 2010-08-31, 2010-09-07, 2010-09-14, 20~
-#&gt; $ viewers_7day         &lt;dbl&gt; 2.24, 3.00, 3.00, 2.60, 3.03, 2.75, 3.10, 3.53, 3.82, 3.60, 3.8~
-#&gt; $ viewers_28day        &lt;dbl&gt; 7, 3, 2, 4, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
-#&gt; $ network_rank         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-#&gt; $ channels_rank        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-#&gt; $ bbc_iplayer_requests &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
-#&gt; $ episode_count        &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ~
-#&gt; $ us_season            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 5, 5, 5~
-#&gt; $ us_airdate           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, "June 2~
+#&gt; $ series               &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, ~
+#&gt; $ episode              &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6,~
+#&gt; $ uk_airdate           &lt;date&gt; 2010-08-17, 2010-08-24, 2010-08-31, 2010-09-07, 2010-09-14, 2010-09-21, 2011-08-16, 2011-~
+#&gt; $ viewers_7day         &lt;dbl&gt; 2.24, 3.00, 3.00, 2.60, 3.03, 2.75, 3.10, 3.53, 3.82, 3.60, 3.83, 4.25, 4.42, 5.06, 3.85, ~
+#&gt; $ viewers_28day        &lt;dbl&gt; 7, 3, 2, 4, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
+#&gt; $ network_rank         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
+#&gt; $ channels_rank        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
+#&gt; $ bbc_iplayer_requests &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
+#&gt; $ episode_count        &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,~
+#&gt; $ us_season            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 1, 1~
+#&gt; $ us_airdate           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, "June 22, 2018", "June 22, 2018", ~
 ```
 
 ]
@@ -676,7 +674,7 @@ Customize this report.
 1. Navigate using the RStudio outline pane; rejoice!
 
 
-<div class="countdown" id="timer_623a50e3" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_623b5e64" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -739,7 +737,7 @@ Following the slide previously and 🧶 **Knit** button after each step:
 1. Finally, add the following `{fig.cap = "Duplicate chart!"}`
 
 
-<div class="countdown" id="timer_623a5174" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_623b5d95" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -756,7 +754,7 @@ class: middle, center
 
 # Time for lunch!
 
-<div class="countdown" id="timer_623a514b" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_623b5e35" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">60</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 

@@ -115,9 +115,9 @@ class: your-turn
 Looking at `01-bakeoff-report.Rmd` together. 
 Look at the source, then `r emo::ji("yarn")` **Knit** after each step.
 
-1. Add a header `# Series Analysis`.
+1. Add a header `# Series Analysis {.tabset}`.
 
-1. Change `# Overview` to `## Overview {.tabset}`.
+1. Change `# Overview` to `## Overview`.
 
 1. Change `# Ratings` to `## Ratings`.
 
@@ -146,7 +146,7 @@ class: inverse, center, middle
 
 ```markdown
 
-# Series Analysis {.tabset .tabset-fade}
+# Series Analysis {.tabset .tabset-fade .tabset-pills}
 
 ## Overview
 
@@ -182,7 +182,7 @@ class: live-code
 
 Together: 
 
-1. We'll add a new header `## Days {.tabset .tabset-pill}`
+1. We'll add a new header `## Days {.tabset .tabset-fade .tabset-pills}`
 
 1. <kbd>Ctrl + Alt + i</kbd> for a new R chunk.
 
