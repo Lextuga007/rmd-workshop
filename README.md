@@ -17,6 +17,11 @@ with its own [GitHub repository](https://github.com/ysc2019-workshop)
 for materials. I found this resource through [Alison’s
 blog](https://www.apreshill.com/talk/2019-ysc-workshop/).
 
+Some of the content from the [RMarkdown workshop](https://github.com/nhs-r-community/intro_rmd)
+run at the 2021 NHS-R Community Conference has been incorporated into these 
+slides and special thanks goes to [Hansel Palencia](https://github.com/HanselPalencia) for the
+open source content and [recording](https://www.youtube.com/watch?v=RaM6fgwMZIs).
+
 ------------------------------------------------------------------------
 
 [![forthebadge](https://forthebadge.com/images/badges/cc-by.svg)](https://creativecommons.org/licenses/by/4.0/)  
